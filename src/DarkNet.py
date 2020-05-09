@@ -4,13 +4,12 @@ import sys
 # DarkNet is a utility class for calling the DarkNet Detector function.
 # The DarkNet home directory, object data file, yolov3 config file, and yolov3 weights file is expected.
 class DarkNet:
-    darknet_base_dir = '/root/darknet'
-    darknet_object_data = 'object.data'
-    yolov3_config_file = 'yolov3.cfg'
-    yolov3_weights_file = 'darknet53.conv.74'
 
     # parameterized constructor
-    def __init__(self, darknet_base_dir, darknet_object_data, yolov3_config_file, yolov3_weights_file):
+    def __init__(self, darknet_base_dir='/root/darknet',
+                 darknet_object_data='object.data',
+                 yolov3_config_file='yolov3.cfg',
+                 yolov3_weights_file='darknet53.conv.74'):
         self.darknet_base_dir = darknet_base_dir
         self.darknet_object_data = darknet_object_data
         self.yolov3_config_file = yolov3_config_file
