@@ -27,6 +27,13 @@ Clone this repository
 https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
 ```
 
+Update the configuration parameters
+
+```
+darknet.cfg
+detection.cfg
+```
+
 Use DownloadImages.py to download raw images for the classification objects
 
 ```
