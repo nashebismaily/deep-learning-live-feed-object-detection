@@ -1,5 +1,6 @@
 import unittest
-from src import DarkNet as dn
+from src.main.model import DarkNet as dn
+
 
 # Unit Tests for CaptureStream.py
 class TestDarkNet(unittest.TestCase):

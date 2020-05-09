@@ -1,4 +1,5 @@
-from src import DarkNet as dn
+from src.main.model import DarkNet as dn
+
 
 # main function
 def main():
