@@ -30,7 +30,7 @@ https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
 Use DownloadImages.py to download raw images for the classification objects
 
 ```
-python3 DownloadImages.py <output_directory>
+python3 DownloadImages.py
 ```
 
 Use labelimg to annotate each image

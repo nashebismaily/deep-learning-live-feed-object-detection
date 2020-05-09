@@ -1,12 +1,15 @@
 import cv2 as cv
 from src.main.detection import CaptureStream as cs
 from src.main.utils import Enums as e
+from configparser import ConfigParser
 
 # main function
 def main():
-    # These will become input arguments
-    device_id = 0
-    frame_refresh_interval_ms = 1
+
+    parser = ConfigParser()
+    parser.read('detection.cfg')
+    device_id = parser.get('video_capture_config', 'device_id')
+    frame_refresh_interval_ms = parser.get('video_capture_config', 'frame_refresh_interval_ms')
 
     device_list = cs.get_device_list()
     video_capture = cs.get_camera_stream(device_id)
