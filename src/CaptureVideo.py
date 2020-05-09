@@ -1,5 +1,5 @@
 import cv2 as cv
-from enum import Enum
+from utils import Enums
 
 # get_device_list() enumerates the available cameras connected to the device and
 # returns a list of device id's which can be used with the cv2 VideoCapture construct.
@@ -18,11 +18,6 @@ def get_device_list():
 def get_camera_stream(device_id):
     return cv.VideoCapture(device_id)
 
-# KeyboardInterrupt defines the decimal representation of keyboard keys
-class KeyboardInterrupt(Enum):
-    ESCAPE = 27
-    SPACE = 32
-
 def main():
     # These will become input arguments
     device_id = 0
@@ -37,7 +32,7 @@ def main():
             cv.imshow("device: " + str(device_id), frame)
 
             interrupt_key = cv.waitKey(frame_refresh_interval_ms)
-            if interrupt_key == KeyboardInterrupt.ESCAPE.value:
+            if interrupt_key == Enums.KeyInterrupt.ESCAPE.value:
                 break
 
         video_capture.release()
