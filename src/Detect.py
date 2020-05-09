@@ -2,6 +2,7 @@ import cv2 as cv
 from src import CaptureStream as cs
 from src import Enums as e
 
+# main function
 def main():
     # These will become input arguments
     device_id = 0

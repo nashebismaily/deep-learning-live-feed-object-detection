@@ -17,6 +17,7 @@ def get_device_list():
 def get_camera_stream(device_id):
     return cv.VideoCapture(device_id)
 
+# close_stream stops the video stream from the camera and closes all frame capture windows
 def close_stream(video_capture):
     video_capture.release()
     cv.destroyAllWindows()
