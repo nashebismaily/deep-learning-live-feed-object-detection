@@ -1,27 +1,9 @@
 from google_images_search import GoogleImagesSearch
-
-# Specify Google API keys for google image search
-gis = GoogleImagesSearch('your_dev_api_key', 'your_project_cx')
-
-# Define query strings in google search
-search_strings = [
-    "car",
-    "truck",
-    "buss",
-    "motorcycle",
-    "bicycle",
-    "fire hydrant",
-    "stop sign",
-    "dog",
-    "cat"
-]
-
-# Location to store downloaded images
-base_download_dir = '/Downloads'
+from configparser import ConfigParser
 
 # download_images expects a query string that is passed to google's image search API.
 # 1,000 JPG images are downloaded into subdirectories for each query string.
-def download_images(query):
+def download_images(query, gis, base_download_dir):
     # Google specific search parameters
     search_params = {
         'q': query,
@@ -38,8 +20,19 @@ def download_images(query):
 
 # main function
 def main():
+
+    parser = ConfigParser()
+    parser.read('image.cfg')
+    search_strings = parser.get('image_download_config', 'search_strings')
+    base_download_dir = parser.get('image_download_config', 'base_download_dir')
+    google_api_key = parser.get('image_download_config', 'google_api_key')
+    google_project_cx = parser.get('image_download_config', 'google_project_cx')
+
+    # Specify Google API keys for google image search
+    gis = GoogleImagesSearch(google_api_key, google_project_cx)
+
     for query in search_strings:
-        download_images(query)
+        download_images(query,gis,base_download_dir)
 
 if __name__ == "__main__":
     main()
