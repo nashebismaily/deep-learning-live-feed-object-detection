@@ -20,7 +20,7 @@ def get_device_list():
 def get_camera_stream(device_id):
     return cv.VideoCapture(device_id)
 
-# KEYBOARD_INTERRUPT defines the decimal representation of keyboard keys
+# KeyboardInterrupt defines the decimal representation of keyboard keys
 class KeyboardInterrupt(Enum):
     ESCAPE = 27
     SPACE = 32
