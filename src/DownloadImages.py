@@ -28,7 +28,7 @@ def download_images(query):
         'num': 1000,
         'safe': 'high',
         'fileType': 'jpg',
-        'imgType': 'photo',
+        'imgType': 'photo'
     }
 
     try:
