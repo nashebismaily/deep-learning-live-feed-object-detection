@@ -2,7 +2,6 @@ import cv2 as cv
 from src.main.detection import CaptureStream as cs
 from src.main.utils import Enums as e
 
-
 # main function
 def main():
     # These will become input arguments

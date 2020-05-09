@@ -1,6 +1,5 @@
 from src.main.model import DarkNet as dn
 
-
 # main function
 def main():
     darknet = dn.DarkNet('/root/darknet',
