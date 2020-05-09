@@ -22,10 +22,10 @@ class DarkNet:
     def train(self):
         linux_cmd = str(self.darknet_base_dir) \
                     + "/darknet detector train " \
-                    + self.darknet_base_dir + "/cfg/" + str(self.darknet_object_data) + " "\
-                    + self.darknet_base_dir + "/cfg/" + str(self.yolov3_config_file) + " "\
-                    + self.darknet_base_dir + "/cfg/" + str(self.yolov3_weights_file)+  " "\
-                    + " > " + self.darknet_base_dir + "/" +self.log_file
+                    + str(self.darknet_object_data) + " "\
+                    + str(self.yolov3_config_file) + " "\
+                    + str(self.yolov3_weights_file)+  " "\
+                    + " > " + self.log_file
         process = subprocess.Popen(linux_cmd , shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
         return process
 
