@@ -6,7 +6,7 @@ class CaptureStream:
     # VideoCapture object
     video_capture = None
 
-    #  constructor initializes the video capture with the device_id
+    # constructor initializes the video capture with the device_id
     def __init__(self,device_id=None):
         if device_id != None:
             self.video_capture = cv.VideoCapture(int(device_id))
