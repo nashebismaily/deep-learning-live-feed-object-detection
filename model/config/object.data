@@ -1,0 +1,5 @@
+classes=25
+train=model/config/train.txt
+valid=model/config/test.txt
+names=model/config/coco.names
+backup=model/config/weights/
