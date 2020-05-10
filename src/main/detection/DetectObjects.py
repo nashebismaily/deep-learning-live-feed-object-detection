@@ -12,20 +12,20 @@ def main():
     device_id = parser.get('video_capture_config', 'device_id')
     frame_refresh_interval_ms = parser.get('video_capture_config', 'frame_refresh_interval_ms')
 
-    cs = CaptureStream(device_id)
-    video_capture = cs.get_camera_stream()
+    capture_stream = CaptureStream(device_id)
+    webcam = capture_stream.get_camera_stream()
 
-    if video_capture.isOpened():
+    if webcam.isOpened():
         while True:
-            ret_val, frame  = video_capture.read()
+            ret_val, frame  = webcam.read()
             cv.imshow("device: " + str(device_id), frame)
 
             interrupt_key = cv.waitKey(int(frame_refresh_interval_ms))
             if interrupt_key == e.KeyInterrupt.ESCAPE.value:
                 break
 
-        cs.close_camera_stream()
-        cs.destory_all_windows()
+        capture_stream.close_camera_stream()
+        capture_stream.destory_all_windows()
 
 if __name__ == "__main__":
     main()
