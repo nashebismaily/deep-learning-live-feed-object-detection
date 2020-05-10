@@ -3,7 +3,6 @@ from unittest import mock
 import cv2 as cv
 from src.main.detection.CaptureStream import CaptureStream
 
-
 # Unit Tests for CaptureStream.py
 class TestCaptureStream(unittest.TestCase):
 
