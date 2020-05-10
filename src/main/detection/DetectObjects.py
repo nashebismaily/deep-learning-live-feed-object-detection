@@ -6,7 +6,6 @@ import os
 
 # main function
 def main():
-
     parser = ConfigParser()
     parser.read(os.path.join(os.path.dirname(__file__), '../../../config', 'detection.cfg'))
     device_id = parser.get('video_capture_config', 'device_id')

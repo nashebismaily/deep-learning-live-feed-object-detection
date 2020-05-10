@@ -4,9 +4,7 @@ import os
 
 # main function
 def main():
-
     parser = ConfigParser()
-    print(os.path.join(os.path.dirname(__file__)))
     parser.read(os.path.join(os.path.dirname(__file__), '../../../config', 'darknet.cfg'))
     darknet_base_dir = parser.get('darknet_config', 'darknet_base_dir')
     darknet_object_data = parser.get('darknet_config', 'darknet_object_data')

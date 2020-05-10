@@ -6,19 +6,26 @@ import matplotlib.pyplot as plt
 # The DarkNet home directory, object data file, yolov3 config file, and yolov3 weights file is expected.
 class DarkNet:
 
-    # parameterized constructor
-    def __init__(self, darknet_base_dir='/root/darknet',
-                 darknet_object_data='object.data',
-                 yolov3_config_file='yolov3.cfg',
-                 yolov3_weights_file='darknet53.conv.74',
-                 log_file="out.log"):
+    # Base directory where DarkNet is installed
+    darknet_base_dir =''
+    # object.data file
+    darknet_object_data =''
+    # Configuration file used for Yolov3 Training
+    yolov3_config_file =''
+    # Default weights file used for Training
+    yolov3_weights_file =''
+    # Log file for training output
+    log_file =''
+
+    # constructor
+    def __init__(self, darknet_base_dir, darknet_object_data, yolov3_config_file, yolov3_weights_file, log_file):
         self.darknet_base_dir = darknet_base_dir
         self.darknet_object_data = darknet_object_data
         self.yolov3_config_file = yolov3_config_file
         self.yolov3_weights_file = yolov3_weights_file
         self.log_file = log_file
 
-    # train calls the DarkNet detector function with the train argument
+    # calls the DarkNet detector function with the train argument
     def train(self):
         linux_cmd = str(self.darknet_base_dir) \
                     + "/darknet detector train " \
@@ -29,9 +36,8 @@ class DarkNet:
         process = subprocess.Popen(linux_cmd , shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
         return process
 
-    # tail_log calls a subprocess to tail the output log. Once training is complete, the processes are killed
+    # calls a subprocess to tail the output log. Once training is complete, the processes are killed
     def tail_log(self, process):
-        print("here")
         linux_cmd = "tail -f " + self.darknet_base_dir + "/" + self.log_file
         tail = subprocess.Popen(linux_cmd , shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
         while True:
@@ -44,7 +50,7 @@ class DarkNet:
                 tail.kill()
                 break
 
-    # plot_loss will plot the iterations and average loss from the DarkNet training
+    # plots the iterations and average loss from the DarkNet training
     def plot_loss(self):
         matches = ["avg", "rate", "seconds", "images"]
 
@@ -66,4 +72,5 @@ class DarkNet:
 
         plt.xlabel('Iteration Number')
         plt.ylabel('Average Loss')
+        plt.savefig('books_read.png')
         plt.show()
