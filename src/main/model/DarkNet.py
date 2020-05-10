@@ -1,6 +1,7 @@
 import subprocess
-from subprocess import Popen, PIPE, STDOUT
+from subprocess import PIPE, STDOUT
 import matplotlib.pyplot as plt
+import os
 
 # DarkNet is a utility class for calling the DarkNet Detector function.
 # The DarkNet home directory, object data file, yolov3 config file, and yolov3 weights file is expected.
@@ -72,5 +73,5 @@ class DarkNet:
 
         plt.xlabel('Iteration Number')
         plt.ylabel('Average Loss')
-        plt.savefig('books_read.png')
+        plt.savefig(os.path.join(os.path.dirname(__file__), '../../../model/graphs', 'average_loss.png'))
         plt.show()
