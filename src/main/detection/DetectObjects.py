@@ -1,6 +1,6 @@
 import cv2 as cv
 from src.main.detection.CaptureStream import CaptureStream
-from src.main.utils import Enums as e
+from src.main.utils import Enums
 from configparser import ConfigParser
 from src.main.utils.Utils import Utils
 
@@ -21,7 +21,7 @@ def main():
             cv.imshow("device: " + str(device_id), frame)
 
             interrupt_key = cv.waitKey(int(frame_refresh_interval_ms))
-            if interrupt_key == e.KeyInterrupt.ESCAPE.value:
+            if interrupt_key == Enums.KeyInterrupt.ESCAPE.value:
                 break
 
         capture_stream.close_camera_stream()
