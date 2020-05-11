@@ -25,7 +25,6 @@ class CaptureStream:
                 break
             vc.release()
         cv.destroyAllWindows()
-
         return device_list
 
     # opens the camera specified by the device_id

@@ -2,7 +2,7 @@ import subprocess
 from subprocess import STDOUT
 import matplotlib.pyplot as plt
 from src.main.utils.Utils import Utils
-from subprocess import PIPE, Popen
+from subprocess import PIPE
 
 # DarkNet is a utility class for calling the DarkNet Detector function.
 # The DarkNet home directory, object data file, yolov3 config file, and yolov3 weights file is expected.

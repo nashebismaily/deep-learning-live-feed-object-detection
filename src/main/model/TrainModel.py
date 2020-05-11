@@ -16,7 +16,6 @@ def main():
     log_file = parser.get('darknet_config', 'log_file')
     graph_file = parser.get('darknet_config', 'graph_file')
 
-
     darknet = dn.DarkNet(darknet_base_dir,
                       darknet_object_data,
                       yolov3_config_file,
