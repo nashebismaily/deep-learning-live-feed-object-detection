@@ -28,12 +28,14 @@ class DarkNet:
 
     # calls the DarkNet detector function with the train argument
     def train(self):
+
         linux_cmd = str(self.darknet_base_dir) \
                     + "/darknet detector train " \
                     + str(self.darknet_object_data) + " "\
                     + str(self.yolov3_config_file) + " "\
                     + str(self.yolov3_weights_file)+  " "\
                     + " > " + self.log_file
+
         process = subprocess.Popen(linux_cmd , shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
         return process
 
