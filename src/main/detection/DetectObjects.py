@@ -4,10 +4,13 @@ from src.main.utils import Enums
 from configparser import ConfigParser
 from src.main.utils.Utils import Utils
 
+# index of file in project
+file_index = 4
+
 # main function
 def main():
     parser = ConfigParser()
-    parser.read(parser.read(Utils.get_relative_path(__file__, 'config/detection.cfg', 4)))
+    parser.read(parser.read(Utils.get_relative_path(__file__, file_index, 'config/detection.cfg')))
 
     device_id = parser.get('video_capture_config', 'device_id')
     frame_refresh_interval_ms = parser.get('video_capture_config', 'frame_refresh_interval_ms')

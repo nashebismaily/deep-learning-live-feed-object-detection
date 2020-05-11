@@ -19,7 +19,7 @@ class Utils:
 
     # create absolute path of file
     @staticmethod
-    def get_relative_path(path, file, index=0):
+    def get_relative_path(path, index=0, file=None):
         parent_dir = path
         while index > 0:
             parent_dir = os.path.dirname(parent_dir)
