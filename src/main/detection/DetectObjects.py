@@ -11,24 +11,37 @@ file_index = 4
 def main():
     parser = ConfigParser()
     parser.read(parser.read(Utils.get_relative_path(__file__, file_index, 'config/detection.cfg')))
+    parser.read(parser.read(Utils.get_relative_path(__file__, file_index, 'config/mode.cfg')))
+    image_mode =  parser.get('program_mode', 'image')
+    video_mode =  parser.get('program_mode', 'video')
+    camera_mode = parser.get('program_mode', 'camera')
 
-    device_id = parser.get('video_capture_config', 'device_id')
-    frame_refresh_interval_ms = parser.get('video_capture_config', 'frame_refresh_interval_ms')
+    # process an image
+    if image_mode == 1:
+        print("TODO")
+    # process a video file
+    elif video_mode == 1:
+        print("TODO")
+    # process a video camera
+    elif camera_mode == 1:
+        parser.clear()
+        device_id = parser.get('video_capture_config', 'device_id')
+        frame_refresh_interval_ms = parser.get('video_capture_config', 'frame_refresh_interval_ms')
 
-    capture_stream = CaptureStream(device_id)
-    web_camera = capture_stream.get_camera_stream()
+        capture_stream = CaptureStream(device_id)
+        camera = capture_stream.get_camera_stream()
 
-    if web_camera.isOpened():
-        while True:
-            ret_val, frame  = web_camera.read()
-            cv.imshow("device: " + str(device_id), frame)
+        if camera.isOpened():
+            while True:
+                ret_val, frame  = camera.read()
+                cv.imshow("device: " + str(device_id), frame)
 
-            interrupt_key = cv.waitKey(int(frame_refresh_interval_ms))
-            if interrupt_key == Enums.KeyInterrupt.ESCAPE.value:
-                break
+                interrupt_key = cv.waitKey(int(frame_refresh_interval_ms))
+                if interrupt_key == Enums.KeyInterrupt.ESCAPE.value:
+                    break
 
-        capture_stream.close_camera_stream()
-        capture_stream.destory_all_windows()
+            capture_stream.close_camera_stream()
+            capture_stream.destory_all_windows()
 
 if __name__ == "__main__":
     main()
