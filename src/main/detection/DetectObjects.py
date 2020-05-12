@@ -16,7 +16,6 @@ def main():
     d_bounding_box = Parser.get_config(parser, 'boundingbox.cfg', 'blob')
     mean = d_bounding_box.get('mean')
     crop = d_bounding_box.get('crop')
-    d_depth = d_bounding_box.get('d_depth')
     swap_rb = d_bounding_box.get('swap_rb')
     scale_factor = d_bounding_box.get('scale_factor')
     output_width = d_bounding_box.get('output_width')
@@ -28,7 +27,7 @@ def main():
     yolov_config = d_darknet.get('yolov3_config_file')
 
     bounding_box = BoundingBox(scale_factor, output_length, output_width, mean, swap_rb,
-                               crop, d_depth, yolov_labels, yolov_config, yolov_weights)
+                               crop, yolov_labels, yolov_config, yolov_weights)
 
     # process an image
     if image_mode == 1:
