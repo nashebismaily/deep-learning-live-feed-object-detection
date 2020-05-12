@@ -1,10 +1,6 @@
 from google_images_search import GoogleImagesSearch
 from configparser import ConfigParser
-from src.main.utils.Utils import Utils
-import os
-
-# index of file in project
-file_index = 4
+from src.main.utils.Parser import Parser
 
 # download_images expects a query string that is passed to google's image search API.
 # 1,000 JPG images are downloaded into subdirectories for each query string.
@@ -27,17 +23,17 @@ def download_images(query, gis, base_download_dir):
 def main():
 
     parser = ConfigParser()
-    parser.read(parser.read(Utils.get_relative_path(__file__, file_index, 'config/google.cfg')))
-    search_strings = parser.get('image_download_config', 'search_strings')
-    base_download_dir = parser.get('image_download_config', 'base_download_dir')
-    google_api_key = parser.get('image_download_config', 'google_api_key')
-    google_project_cx = parser.get('image_download_config', 'google_project_cx')
+    d_image_download = Parser.get_config(parser, 'google.cfg', 'image_download')
+    base_download_dir = d_image_download.get('base_download_dir')
+    search_strings = d_image_download.get('search_strings')
+    google_api_key = d_image_download.get('google_api_key')
+    google_project_cx = d_image_download.get('google_project_cx')
 
     # Specify Google API keys for google image search
     gis = GoogleImagesSearch(google_api_key, google_project_cx)
 
     for query in search_strings:
-        download_images(query,gis,base_download_dir)
+        download_images(query, gis, base_download_dir)
 
 if __name__ == "__main__":
     main()

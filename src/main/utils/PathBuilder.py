@@ -1,7 +1,7 @@
 import os
 
 # Utils is a utility class with helper functions which enable ease of use
-class Utils:
+class PathBuilder:
 
     # return working directory of file
     @staticmethod

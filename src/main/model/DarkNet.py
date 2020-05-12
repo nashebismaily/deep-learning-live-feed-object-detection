@@ -1,7 +1,7 @@
 import subprocess
 from subprocess import STDOUT
 import matplotlib.pyplot as plt
-from src.main.utils.Utils import Utils
+from src.main.utils.PathBuilder import PathBuilder
 from subprocess import PIPE
 
 # DarkNet is a utility class for calling the DarkNet Detector function.
@@ -24,14 +24,15 @@ class DarkNet:
     project_dir = ''
 
     # constructor
-    def __init__(self, darknet_base_dir, darknet_object_data, yolov3_config_file, yolov3_weights_file, log_file, graph_file, file_index=0):
+    def __init__(self, darknet_base_dir, darknet_object_data, yolov3_config_file, yolov3_weights_file, log_file, graph_file, file_index=4):
         self.darknet_base_dir = darknet_base_dir
         self.darknet_object_data = darknet_object_data
         self.yolov3_config_file = yolov3_config_file
         self.yolov3_weights_file = yolov3_weights_file
         self.log_file = log_file
         self.graph_file = graph_file
-        self.project_dir = Utils.get_relative_path(__file__, file_index)
+        self.file_index = int(file_index)
+        self.project_dir = PathBuilder.get_relative_path(__file__, self.file_index)
 
     # calls the DarkNet detector function with the train argument
     def train(self):
