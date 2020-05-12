@@ -8,3 +8,11 @@ class Parser:
         parser.read(PathBuilder.get_relative_path(__file__, index, 'config/' + config))
         return dict(parser.items(section))
 
+    @staticmethod
+    def string_to_bool(string):
+        if string == 'True':
+            return True
+        elif string == 'False':
+            return False
+        else:
+            raise ValueError
