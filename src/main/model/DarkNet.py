@@ -15,7 +15,7 @@ class DarkNet:
     # Configuration file used for Yolov3 Training
     yolov3_config_file = ''
     # Default weights file used for Training
-    yolov3_weights_file = ''
+    yolov3_train_weights_file = ''
     # Log file for training output
     log_file = ''
     # Graph file for average loss
@@ -24,11 +24,11 @@ class DarkNet:
     project_dir = ''
 
     # constructor
-    def __init__(self, darknet_base_dir, darknet_object_data, yolov3_config_file, yolov3_weights_file, log_file, graph_file, file_index=4):
+    def __init__(self, darknet_base_dir, darknet_object_data, yolov3_config_file, yolov3_train_weights_file, log_file, graph_file, file_index=4):
         self.darknet_base_dir = darknet_base_dir
         self.darknet_object_data = darknet_object_data
         self.yolov3_config_file = yolov3_config_file
-        self.yolov3_weights_file = yolov3_weights_file
+        self.yolov3_train_weights_file = yolov3_train_weights_file
         self.log_file = log_file
         self.graph_file = graph_file
         self.file_index = int(file_index)
@@ -41,7 +41,7 @@ class DarkNet:
                     + "/darknet detector train " \
                     + self.project_dir + '/' + str(self.darknet_object_data) + " "\
                     + self.project_dir + '/' + str(self.yolov3_config_file) + " "\
-                    + self.project_dir + '/' + str(self.yolov3_weights_file)+  " "\
+                    + self.project_dir + '/' + str(self.yolov3_train_weights_file)+  " "\
                     + " > " + self.project_dir + '/' + self.log_file
         process = subprocess.Popen(linux_cmd , shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
         return process
