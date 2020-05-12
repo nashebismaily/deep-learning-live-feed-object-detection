@@ -32,7 +32,7 @@ class DarkNet:
         self.log_file = log_file
         self.graph_file = graph_file
         self.file_index = int(file_index)
-        self.project_dir = PathBuilder.get_relative_path(__file__, self.file_index)
+        self.project_dir = PathBuilder.get_relative_path(__file__, file_index)
 
     # calls the DarkNet detector function with the train argument
     def train(self):
