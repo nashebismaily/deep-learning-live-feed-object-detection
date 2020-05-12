@@ -7,17 +7,29 @@ file_index = 4
 
 class BoundingBox:
 
+    # loaded weights and configs for yolov3
     net = None
+    # output layers from yolov3
     layer_names = None
+    # flag which indicates that swap first and last channels in 3-channel image is necessary
     swap_rb = False
+    # flag which indicates whether image will be cropped after resize or not
     crop = False
+    # scalar with mean values which are subtracted from channels
     mean = ''
+    # labels for object classification
     labels = ''
+    # width of the frame output
     output_width = ''
+    # length of the frame output
     output_length = ''
+    # width of the frame input
     input_width = ''
+    # width of the frame length
     input_length = ''
+    # multiplier for image values
     scale_factor = ''
+    # project_base_dir
     project_dir = ''
 
     # constructor initializes the video capture with the device_id
@@ -43,6 +55,7 @@ class BoundingBox:
         self.layer_names = self.net.getLayerNames()
         self.layer_names = [self.layer_names[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
 
+    # return the blob from the input frame
     def get_blob(self,frame):
         return cv.dnn.blobFromImage(frame,
                                     self.scale_factor,
@@ -51,6 +64,7 @@ class BoundingBox:
                                     crop=self.crop,
                                     mean=self.mean)
 
+    # get the output layers from the blob
     def get_output_layers(self, blob):
         self.net.setInput(blob)
         return self.net.forward(self.layer_names)
