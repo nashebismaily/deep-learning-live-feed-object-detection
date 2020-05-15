@@ -43,12 +43,15 @@ class DarkNet:
                     + self.project_dir + '/' + str(self.yolov3_config_file) + " "\
                     + self.project_dir + '/' + str(self.yolov3_train_weights_file)+  " "\
                     + " > " + self.project_dir + '/' + self.log_file
+
+        print("Running Shell Command: {}".format(linux_cmd))
         process = subprocess.Popen(linux_cmd , shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
+
         return process
 
     # wait for a process to end
     def wait(self,process):
-        print("Log file: " + str(self.project_dir + '/' + self.log_file))
+        print("Dark Net Log file: " + str(self.project_dir + '/' + self.log_file))
         process.wait()
 
     # plots the iterations and average loss from the DarkNet training
