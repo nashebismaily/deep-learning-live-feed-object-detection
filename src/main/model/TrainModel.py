@@ -8,8 +8,12 @@ def main():
     d_darknet = Parser.get_config(parser, 'darknet.cfg', 'darknet')
     darknet_base_dir = d_darknet.get('darknet_base_dir')
     darknet_object_data = d_darknet.get('darknet_object_data')
+
+    d_darknet = Parser.get_config(parser, 'darknet.cfg', 'yolov3')
     yolov3_config_file = d_darknet.get('yolov3_config_file')
     yolov3_train_weights_file = d_darknet.get('yolov3_train_weights_file')
+
+    d_darknet = Parser.get_config(parser, 'darknet.cfg', 'output')
     log_file = d_darknet.get('log_file')
     graph_file = d_darknet.get('graph_file')
 
