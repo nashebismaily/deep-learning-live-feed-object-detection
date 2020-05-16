@@ -103,8 +103,8 @@ def main():
 
             if frame_count % 10 == 0:
                 print("Total frames written: {}".format(frame_count))
-            frame_count += 1
 
+            frame_count += 1
             writer.write(frame_with_boxes)
 
         print("Wrote video to: {}".format(output_video))
@@ -135,8 +135,8 @@ def main():
                     frame_with_boxes, boxes, \
                     confidences, class_identifiers, \
                     suppression = detect_objects(bounding_box, frame,boxes, confidences, class_identifiers, suppression, True)
-                frame_count += 1
 
+                frame_count += 1
                 cv.imshow("device: " + str(device_id), frame_with_boxes)
 
                 interrupt_key = cv.waitKey(int(frame_wait_ms))
