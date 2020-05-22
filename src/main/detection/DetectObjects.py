@@ -7,21 +7,6 @@ from src.main.utils import Keys
 from configparser import ConfigParser
 from src.main.utils.Parser import Parser
 
-# takes an input frame, detects objects, draws bounding boxes, and returns the new frame
-def detect_objects(bounding_box, frame, boxes=None, confidences=None,
-                   class_identifiers=None, suppression=None, pause=False):
-    if pause:
-        frame_with_boxes = bounding_box.draw_boxes_labels(frame, boxes, confidences, class_identifiers, suppression)
-    else:
-        input_height, input_width = frame.shape[:2]
-        blob = bounding_box.get_blob(frame)
-        output_layers = bounding_box.get_output_layers(blob)
-        boxes, confidences, class_identifiers = bounding_box.get_bounding_boxes(output_layers, input_height, input_width)
-        suppression = bounding_box.suppress_weak_overlapping_boxes(boxes, confidences)
-        frame_with_boxes = bounding_box.draw_boxes_labels(frame, boxes, confidences, class_identifiers, suppression)
-
-    return frame_with_boxes, boxes, confidences, class_identifiers, suppression
-
 # main function
 def main():
     parser = ConfigParser()
@@ -56,7 +41,13 @@ def main():
         output_image = d_image.get('output_image')
 
         frame = cv.imread(input_image)
-        frame_with_boxes, boxes, confidences, class_identifiers, suppression = detect_objects(bounding_box,frame)
+        input_height, input_width = frame.shape[:2]
+        blob = bounding_box.get_blob(frame)
+        output_layers = bounding_box.get_output_layers(blob)
+        boxes, confidences, class_identifiers = bounding_box.get_bounding_boxes(output_layers, input_height,
+                                                                                input_width)
+        suppression = bounding_box.suppress_weak_overlapping_boxes(boxes, confidences)
+        frame_with_boxes = bounding_box.draw_boxes_labels(frame, boxes, confidences, class_identifiers, suppression)
 
         cv.imwrite(output_image,frame_with_boxes)
         print("Wrote image to: {}".format(output_image))
@@ -90,7 +81,13 @@ def main():
             if not ret_val:
                 break
             start_time = time.time()
-            frame_with_boxes, boxes, confidences, class_identifiers, suppression = detect_objects(bounding_box, frame)
+            input_height, input_width = frame.shape[:2]
+            blob = bounding_box.get_blob(frame)
+            output_layers = bounding_box.get_output_layers(blob)
+            boxes, confidences, class_identifiers = bounding_box.get_bounding_boxes(output_layers, input_height,
+                                                                                    input_width)
+            suppression = bounding_box.suppress_weak_overlapping_boxes(boxes, confidences)
+            frame_with_boxes = bounding_box.draw_boxes_labels(frame, boxes, confidences, class_identifiers, suppression)
             end_time = time.time()
 
             if writer is None:
@@ -128,13 +125,16 @@ def main():
                 ret_val, frame  = camera.read()
 
                 if  frame_count == 1 or frame_count % int(frame_pause_interval) == 0:
-                    frame_with_boxes, boxes, \
-                    confidences, class_identifiers, \
-                    suppression = detect_objects(bounding_box, frame)
+                    input_height, input_width = frame.shape[:2]
+                    blob = bounding_box.get_blob(frame)
+                    output_layers = bounding_box.get_output_layers(blob)
+                    boxes, confidences, class_identifiers = bounding_box.get_bounding_boxes(output_layers, input_height,
+                                                                                            input_width)
+                    suppression = bounding_box.suppress_weak_overlapping_boxes(boxes, confidences)
+                    frame_with_boxes = bounding_box.draw_boxes_labels(frame, boxes, confidences, class_identifiers,
+                                                                      suppression)
                 else:
-                    frame_with_boxes, boxes, \
-                    confidences, class_identifiers, \
-                    suppression = detect_objects(bounding_box, frame,boxes, confidences, class_identifiers, suppression, True)
+                    frame_with_boxes = bounding_box.draw_boxes_labels(frame, boxes, confidences, class_identifiers, suppression)
 
                 frame_count += 1
                 cv.imshow("device: " + str(device_id), frame_with_boxes)
