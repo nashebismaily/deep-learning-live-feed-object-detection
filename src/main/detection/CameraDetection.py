@@ -1,5 +1,4 @@
 import cv2 as cv
-
 from src.main.detection.CaptureStream import CaptureStream
 from src.main.detection.BoundingBox import BoundingBox
 from src.main.utils import Keys
