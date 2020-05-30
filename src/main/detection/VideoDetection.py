@@ -30,7 +30,7 @@ def main():
     d_video = Parser.get_config(parser, 'detection.cfg', 'video')
     input_video = d_video.get('input_video')
     output_video = d_video.get('output_video')
-    frames_per_second = d_video.get('frames_per_second')
+    frames_per_second = int(d_video.get('frames_per_second'))
     color = Parser.string_to_bool(d_video.get('color'))
 
     video_stream = cv.VideoCapture(input_video)
