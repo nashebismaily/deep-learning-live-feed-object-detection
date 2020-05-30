@@ -5,7 +5,7 @@ from src.main.utils import Keys
 from configparser import ConfigParser
 from src.main.utils.Parser import Parser
 
-# Detect objects from a live camera
+# Detect objects from a live camera feed
 def main():
     parser = ConfigParser()
     d_bounding_box = Parser.get_config(parser, 'boundingbox.cfg', 'blob')
