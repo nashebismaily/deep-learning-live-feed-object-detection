@@ -2,11 +2,14 @@
 
 This project uses a Convolutional Neural Network (CNN) to automatically detect and track objects in real-time video feeds. The images used for training are annotated in yolov3 format with labelimg. DarkNet is used to train the model on GPU's and the output is collected to perform an analysis on the loss function. The OpenCV library is used to capture live stream video. Each frame is captured, processed with the model, integrated with an object detection bounding box, and displayed to the end user in real-time. 
 
-*** DEVELOPMENT IN PROGRESS ***
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+You can chose to use the pre-trained model
+
+Or you can train your own model
 
 ### Prerequisites
 
@@ -21,48 +24,75 @@ pip3 matplotlib
 pip3 google_images_search
 ```
 
-### Installing
-
-Clone this repository
+### Clone Repository
 
 ```
 https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
 ```
 
-Update the configuration parameters
+### Option 1: Use the Pre-Trained Model
+
+Download the pre-trained model from here 
+
+[ML Model](https://srv-file6.gofile.io/download/Bfj367/yolov3.weights)
+
+Place yolov3.weights into this folder:
 
 ```
-darknet.cfg
-detection.cfg
+deep-learning-live-feed-object-detection/model/config
 ```
 
-Use DownloadImages.py to download raw images for the classification objects
+### Option 2: Train a custom Model
 
-```
-python3 DownloadImages.py
-```
+1. Download a set of images for an object you want to classify.
 
-Use labelimg to annotate each image
+2. Use labelImg to annotate each image, ensure YOLO is set as the output type
 
-![alt text](resources/icons/labelImg.png)
+    ```
+    labelImg
+    ```
 
-Train the Model and determine the appropriate model weights to choose based on the average loss
+    ![alt text](resources/icons/labelImg.png)
 
-```
-python3 TrainModel.py
-```
+3. Update the objects.names file to contain a list of objects that have been labeled
 
-![alt text](resources/icons/darknetlossgraph.png)
+    ```
+    deep-learning-live-feed-object-detection/model/config/objects.names 
+    ```
 
-Run the live stream video detection. This requires a connected web camera to your device.
+4. Train the Model
 
-```
-python3 DetectObjects.py
-```
+    ```
+    python3 deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
+    ```
 
-Here's the result
+5. Once training is complete, observe the loss graph found here
+
+    ```
+    deep-learning-live-feed-object-detection/model/graphs
+    ```
+
+    ![alt text](resources/icons/darknetlossgraph.png)
+
+6. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
+
+    ```
+    deep-learning-live-feed-object-detection/model/config/yolov3.weights
+    ```
+
+### Run Image Detection
+
+
+### Run Video Detection
+
+
+### Run Live Camera Detection
+
+
+### Results:
 
 TODO
+
 
 ## Running the tests
 
