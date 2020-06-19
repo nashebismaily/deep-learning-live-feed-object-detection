@@ -31,7 +31,7 @@ https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
 
 ### Option 1: Use the Pre-Trained Model
 
-Download the pre-trained model from here 
+Download my pre-trained model:
 
 [Pre-Trained ML Model](https://srv-file6.gofile.io/download/Bfj367/yolov3.weights)
 
@@ -43,9 +43,23 @@ deep-learning-live-feed-object-detection/model/config
 
 ### Option 2: Train a custom Model
 
-1. Download a set of images for an object you want to classify.
+1. Add your google api keys and update your image search in google.cfg:
 
-2. Use labelImg to annotate each image, ensure YOLO is set as the output type
+    ```
+    [image_download]
+    search_string=car,truck,buss,motercycle,bicycle,dog,cat,fire hydrant,stop sign
+    base_download_dir=/Downloads
+    google_api_key=
+    google_project_cx=
+    ```
+
+2. Download images
+
+    ```
+    deep-learning-live-feed-object-detection/images/DownloadImages.py
+    ```
+
+3. Use labelImg to annotate each image, ensure YOLO is set as the output type
 
     ```
     labelImg
@@ -53,25 +67,25 @@ deep-learning-live-feed-object-detection/model/config
 
     ![alt text](resources/icons/labelImg.png)
 
-3. Update the objects.names file to contain a list of objects that have been labeled
+4. Update the objects.names file to contain a list of objects that have been labeled
 
     ```
     deep-learning-live-feed-object-detection/model/config/objects.names 
     ```
 
-4. Train the Model
+5. Train the Model
 
     ```
     python3 deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
-5. Training output can be viewed here
+6. Training output can be viewed here
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-6. Once training is complete, observe the loss graph found here
+7. Once training is complete, observe the loss graph found here
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -79,7 +93,7 @@ deep-learning-live-feed-object-detection/model/config
 
     ![alt text](resources/icons/darknetlossgraph.png)
 
-7. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
+8. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
 
     ```
     deep-learning-live-feed-object-detection/model/config/yolov3.weights
@@ -89,19 +103,19 @@ deep-learning-live-feed-object-detection/model/config
 
 1. Add the path for the source and destination images into the config under the image section
 
-```
-deep-learning-liveconf-feed-object-detection/config/detection.cfg
+    ```
+    deep-learning-liveconf-feed-object-detection/config/detection.cfg
 
-input_image=/root/photos/input_photo.jpg
-output_image=/root/photos/output_photo.jpg
-```
+    input_image=/root/photos/input_photo.jpg
+    output_image=/root/photos/output_photo.jpg
+    ```
 
 2. Run the static image object detection
 
 
-```
-deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
-```
+    ```
+    deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
+    ```
 
 ### Detect objects in video
 
@@ -109,43 +123,43 @@ deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
 
    Note: The output video needs to be in .avi format
    
-```
-deep-learning-liveconf-feed-object-detection/config/detection.cfg
+    ```
+    deep-learning-liveconf-feed-object-detection/config/detection.cfg
 
-input_video=/root/videos/input_video.mov
-output_video=/root/videos/output_video.avi
-```
+    input_video=/root/videos/input_video.mov
+    output_video=/root/videos/output_video.avi
+    ```
 
 2. Run the video object detection
 
-```
-deep-learning-liveconf-feed-object-detection/src/main/detection/DetectVideo.py
-```
+    ```
+    deep-learning-liveconf-feed-object-detection/src/main/detection/DetectVideo.py
+    ```
 
 ### Detect objects in camera
 
 
 1. Scan your cameras to detect available camera id's
 
-```
-deep-learning-liveconf-feed-object-detection/src/main/utils/ScanCameras.py
+    ```
+    deep-learning-liveconf-feed-object-detection/src/main/utils/ScanCameras.py
 
-[0]
-```
+    [0]
+    ```
 
 2. Update detection.cfg with your selected device id
 
-```
-deep-learning-liveconf-feed-object-detection/config/detection.cfg
+    ```
+    deep-learning-liveconf-feed-object-detection/config/detection.cfg
 
-device_id=0
-```
+    device_id=0
+    ```
 
 3. Run the live-stream  object detection
 
-```
-deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
-```
+    ```
+    deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
+    ```
 
 ### Results:
 
