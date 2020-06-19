@@ -84,7 +84,7 @@ deep-learning-live-feed-object-detection/model/config
 1. Add the path for the source and destination images into the config under the image section
 
 ```
-deep-learning-liveconf-feed-object-detection/ig/detection.cfg
+deep-learning-liveconf-feed-object-detection/config/detection.cfg
 
 input_image=/root/photos/input_photo.jpg
 output_image=/root/photos/output_photo.jpg
@@ -104,7 +104,7 @@ deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
    Note: The output video needs to be in .avi format
    
 ```
-deep-learning-liveconf-feed-object-detection/ig/detection.cfg
+deep-learning-liveconf-feed-object-detection/config/detection.cfg
 
 input_video=/root/videos/input_video.mov
 output_video=/root/videos/output_video.avi
@@ -130,7 +130,7 @@ deep-learning-liveconf-feed-object-detection/src/main/detection/ScanCameras.py
 2. Update detection.cfg with your selected device id
 
 ```
-deep-learning-liveconf-feed-object-detection/ig/detection.cfg
+deep-learning-liveconf-feed-object-detection/config/detection.cfg
 
 device_id=0
 ```
