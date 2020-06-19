@@ -14,7 +14,7 @@ A graphical representation of the workflow follows:
 
 The live stream object detection results in this:
 
-![car](resources/gifs/nasheb-car-short.gif)
+![car](https://s7.gifyu.com/images/car.gif)
 
 ## Getting Started
 
@@ -96,7 +96,12 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-live-feed-object-detection/model/config/objects.names 
     ```
 
-6. Create a train.txt and test.txt file which contains abosolute path to images
+6. Split the data into test and training sets. 
+    
+    * train.txt will contains abosolut path to images for training
+    * test.txt will contains abosolut path to images for testing
+    * label files need to be in the same directory as images
+     
     ```
     deep-learning-live-feed-object-detection/model/config/test.txt
     deep-learning-live-feed-object-detection/model/config/train.txt
@@ -131,13 +136,13 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
-10. Training output can be viewed here
+10. View the training output here:
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-11. Once training is complete, observe the loss graph found here
+11. Once training is complete, observe the loss graph found here:
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -236,6 +241,3 @@ deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
-
