@@ -100,8 +100,8 @@ deep-learning-live-feed-object-detection/model/config
 
 6. Split the data into test and training sets. 
     
-    * train.txt will contains abosolut path to images for training
-    * test.txt will contains abosolut path to images for testing
+    * train.txt will contains absolute path to images for training
+    * test.txt will contains absolute path to images for testing
     * label files need to be in the same directory as images
      
     ```
