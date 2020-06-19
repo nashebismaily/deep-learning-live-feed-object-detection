@@ -4,13 +4,15 @@ This project uses a Convolutional Neural Network (CNN) to automatically detect a
 
 The CNN splits the input image into a grid of S×S cells. If the center of the ground truth box falls into a cell, that cell is responsible for detecting the existence of that object. Each grid cell predicts B number of bounding boxes and their objectness score along with their class predictions as follows:
 
-* Coordinates of B bounding boxes - similar to previous detectors, the CNN predicts 4 coordinates for each bounding box (bx,by,bw,bh). Where x and y are set to be offset of a cell location.
+* Coordinates of B bounding boxes - similar to previous detectors, the CNN predicts 4 coordinates for each bounding box (tx,ty,tw,th). Where x and y are set to be offset of a cell location.
 * Objectness score - indicates the probability that the cell contains an object. The objectness score is passed through a sigmoid function to be treated as a probability with a value range between 0 and 1. 
 * Class prediction - if the bounding box contains an object, the network predicts the probability of K number of classes. Where K is the total number of classes in your problem.
 
 A graphical representation of the workflow follows:
 
 ![yolovcnnarchitecture](resources/icons/yolovcnnarchitecture.png)
+
+Notice that the prediction feature map has three boxes. The CNN has 9 anchors to allow for prediction at 3 different scales per cell. The detection layer makes detection at feature maps of three different sizes, having strides 32, 16, and 8 respectively. This results in the prediction of 3 bounding boxes for each cell. The bounding box responsible for detecting the dog will be the one whose anchor has the highest intersection over union with the ground truth box.
 
 The live stream object detection results in this:
 
