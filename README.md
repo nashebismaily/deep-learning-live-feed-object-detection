@@ -2,6 +2,11 @@
 
 This project uses a Convolutional Neural Network (CNN) to automatically detect and track objects in real-time video feeds. The images used for training are annotated in yolov3 format with labelimg. DarkNet is used to train the model on GPU's and the output is collected to perform an analysis on the loss function. The OpenCV library is used to capture live stream video. Each frame is captured, processed with the model, integrated with an object detection bounding box, and displayed to the end user in real-time. 
 
+The CNN splits the input image into a grid of S×S cells. If the center of the ground truth box falls into a cell, that cell is responsible for detecting the existence of that object. Each grid cell predicts B number of bounding boxes and their objectness score along with their class predictions as follows:
+
+* Coordinates of B bounding boxes - similar to previous detectors, the CNN predicts 4 coordinates for each bounding box (bx,by,bw,bh). Where x and y are set to be offset of a cell location.
+* Objectness score - indicates the probability that the cell contains an object. The objectness score is passed through a sigmoid function to be treated as a probability with a value range between 0 and 1. 
+* Class prediction - if the bounding box contains an object, the network predicts the probability of K number of classes. Where K is the total number of classes in your problem.
 
 ## Getting Started
 
@@ -190,6 +195,7 @@ deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
 * [DarkNet](https://pjreddie.com/darknet/)
 * [Yolov3](https://pjreddie.com/darknet/yolo/)
 * [OpenCV2](https://pypi.org/project/opencv-python/)
+* [Deep Learning for Vision Systems](https://livebook.manning.com/book/grokking-deep-learning-for-computer-vision/chapter-7/v-8/1)
 
 ## Authors
 
