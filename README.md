@@ -21,7 +21,7 @@ google_images_search
 
 This codebase was developed and tested in PyCharm.
 
-Donwload the PyCharm IDE and clone this repository.
+Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/) and clone this repository.
 
 ```
 https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
@@ -98,7 +98,8 @@ deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
 ### Detect objects in video
 
 1. Add the path for the source and destination videos into the config under the video section.
-   Note: The output video will be .avi format
+
+   Note: The output video needs to be in .avi format
    
 ```
 deep-learning-liveconf-feed-object-detection/ig/detection.cfg
@@ -151,11 +152,6 @@ Each module has its own set of unit test that can be run.
 python3 TestDarkNet.py
 python3 TestCaptureStraem.py
 ```
-
-## Deployment
-
-The CaptureStream class contains helper functions which will detect available web cameras connected to your device.
-After you determine which device you wish to use, add its device ID into the DetectObjects.py configuration file.
 
 ## Built With
 
