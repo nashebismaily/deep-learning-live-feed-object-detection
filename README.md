@@ -12,7 +12,7 @@ A graphical representation of the workflow follows:
 ![alt text](resources/icons/yolovcnnarchitecture.png)
 
 The live stream object detection results in this:
-![alt text](https://s7.gifyu.com/images/car.gif)
+![Alt Text](https://s7.gifyu.com/images/car.gif)
 
 ## Getting Started
 
