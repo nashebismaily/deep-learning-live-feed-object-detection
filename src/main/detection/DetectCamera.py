@@ -26,7 +26,7 @@ def main():
     yolov_weights = d_darknet.get('yolov3_test_weights_file')
     yolov_config = d_darknet.get('yolov3_config_file')
 
-    # Read detection.cfg'
+    # Read detection.cfg
     d_camera = Parser.get_config(parser, 'detection.cfg', 'camera')
     device_id = d_camera.get('device_id')
     frame_wait_ms = d_camera.get('frame_wait_ms')
