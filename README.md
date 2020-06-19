@@ -64,8 +64,14 @@ deep-learning-live-feed-object-detection/model/config
     ```
     python3 deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
+    
+5. Training output can be viewed here
 
-5. Once training is complete, observe the loss graph found here
+    ```
+    deep-learning-live-feed-object-detection/model/logs
+    ```
+
+6. Once training is complete, observe the loss graph found here
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -73,7 +79,7 @@ deep-learning-live-feed-object-detection/model/config
 
     ![alt text](resources/icons/darknetlossgraph.png)
 
-6. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
+7. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
 
     ```
     deep-learning-live-feed-object-detection/model/config/yolov3.weights
