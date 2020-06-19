@@ -226,7 +226,7 @@ deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
 * [DarkNet](https://pjreddie.com/darknet/)
 * [Yolov3](https://pjreddie.com/darknet/yolo/)
 * [OpenCV2](https://pypi.org/project/opencv-python/)
-* [Deep Learning for Vision Systems](https://livebook.manning.com/book/grokking-deep-learning-for-computer-vision/chapter-7/v-8/1)
+* [Deep Learning](https://livebook.manning.com/book/grokking-deep-learning-for-computer-vision/chapter-7/v-8/1)
 
 ## Authors
 
