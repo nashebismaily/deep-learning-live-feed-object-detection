@@ -11,22 +11,6 @@ class CaptureStream:
         if device_id != None:
             self.video_capture = cv.VideoCapture(int(device_id))
 
-    # scans available devices and returns the available cameras connected to the device
-    def scan_devices(self):
-        device_list = []
-        id = 0
-        while True:
-            vc = cv.VideoCapture(id)
-            if vc.read()[0]:
-                device_list.append(id)
-                id += 1
-                cv.destroyAllWindows()
-            else:
-                break
-            vc.release()
-        cv.destroyAllWindows()
-        return device_list
-
     # opens the camera specified by the device_id
     def set_camera_stream(self,device_id):
         self.video_capture = cv.VideoCapture(device_id)
