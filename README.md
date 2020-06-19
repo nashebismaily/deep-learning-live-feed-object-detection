@@ -35,11 +35,12 @@ or you can [train your own model](#option-2-train-a-custom-model)
 
 This codebase was developed and tested in PyCharm.
 
-Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/) and clone this repository.
+1. Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/)
 
-```
-https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
-```
+2. Clone this repository into the PyCharm IDE.
+    ```
+    https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
+    ```
 
 ### Option 1: Use the Pre-Trained Model
 
