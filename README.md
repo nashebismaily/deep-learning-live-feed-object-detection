@@ -8,6 +8,10 @@ The CNN splits the input image into a grid of S×S cells. If the center of the g
 * Objectness score - indicates the probability that the cell contains an object. The objectness score is passed through a sigmoid function to be treated as a probability with a value range between 0 and 1. 
 * Class prediction - if the bounding box contains an object, the network predicts the probability of K number of classes. Where K is the total number of classes in your problem.
 
+The live stream object detection results in this:
+
+TODO
+
 ## Getting Started
 
 These instructions will allow you to run your own live-stream object detection.
@@ -175,11 +179,6 @@ deep-learning-live-feed-object-detection/model/config
     ```
     deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
     ```
-
-### Results:
-
-TODO
-
 
 ## Running the tests
 
