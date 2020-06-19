@@ -131,20 +131,32 @@ deep-learning-live-feed-object-detection/model/config
     darknet_base_dir=/root/darknet
     
     ```
+9. Fine tune the model detection algorithm
 
-9. Train the Model
+    ```
+    deep-learning-live-feed-object-detection/model/config/yolov3.cfg
+    
+    Set 'batch' to 16
+    Set 'subdivisions' to 4
+    Set 'classes' to the number of objects to detect
+    Set 'filters' to (classes + 5)* 3
+    Set 'max_batches' to the number of classes * 2000 
+    Set 'steps' to 80% and 90% of max_batches.
+    ```
+
+10. Train the Model
 
     ```
     deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
-10. View the training output here:
+11. View the training output here:
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-11. Once training is complete, observe the loss graph found here:
+12. Once training is complete, observe the loss graph found here:
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -152,7 +164,7 @@ deep-learning-live-feed-object-detection/model/config
 
     ![darknetlossgraph](resources/icons/darknetlossgraph.png)
 
-12. Select the appropriate weight that correlates to the elbow in the loss graph and move that here:
+13. Select the appropriate weight that correlates to the elbow in the loss graph and move that here:
 
     ```
     deep-learning-live-feed-object-detection/model/weights/yolov3.weights
