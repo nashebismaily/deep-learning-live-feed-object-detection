@@ -73,19 +73,30 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-live-feed-object-detection/model/config/objects.names 
     ```
 
-5. Train the Model
+5. Create a train.txt and test.txt file which contains abosolute path to images
+    ````
+    deep-learning-live-feed-object-detection/model/config/test.txt
+    deep-learning-live-feed-object-detection/model/config/train.txt
+    
+    /root/photos/image1.jpg
+    /root/photos/image2.jpg
+    /root/photos/image3.jpg
+    ...
+    ```
+
+6. Train the Model
 
     ```
     deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
-6. Training output can be viewed here
+7. Training output can be viewed here
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-7. Once training is complete, observe the loss graph found here
+8. Once training is complete, observe the loss graph found here
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -93,7 +104,7 @@ deep-learning-live-feed-object-detection/model/config
 
     ![alt text](resources/icons/darknetlossgraph.png)
 
-8. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
+9. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
 
     ```
     deep-learning-live-feed-object-detection/model/config/yolov3.weights
