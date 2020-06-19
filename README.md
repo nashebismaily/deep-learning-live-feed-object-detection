@@ -14,7 +14,7 @@ A graphical representation of the workflow follows:
 
 The live stream object detection results in this:
 
-![car](https://s7.gifyu.com/images/ezgif.com-gif-makere86a9f623effcdeb.md.gif)
+![car](https://s7.gifyu.com/images/nasheb-car-short.gif)
 
 ## Getting Started
 
