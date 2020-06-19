@@ -9,10 +9,12 @@ The CNN splits the input image into a grid of S×S cells. If the center of the g
 * Class prediction - if the bounding box contains an object, the network predicts the probability of K number of classes. Where K is the total number of classes in your problem.
 
 A graphical representation of the workflow follows:
-![alt text](resources/icons/yolovcnnarchitecture.png)
+
+![yolovcnnarchitecture](resources/icons/yolovcnnarchitecture.png)
 
 The live stream object detection results in this:
-![Alt Text](https://s7.gifyu.com/images/car.gif)
+
+![car](https://s7.gifyu.com/images/car.gif)
 
 ## Getting Started
 
@@ -86,7 +88,7 @@ deep-learning-live-feed-object-detection/model/config
     labelImg
     ```
 
-    ![alt text](resources/icons/labelImg.png)
+    ![labelImg](resources/icons/labelImg.png)
 
 5. Update the objects.names file to contain a list of objects that have been labeled
 
@@ -141,7 +143,7 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-live-feed-object-detection/model/graphs
     ```
 
-    ![alt text](resources/icons/darknetlossgraph.png)
+    ![darknetlossgraph](resources/icons/darknetlossgraph.png)
 
 12. Select the appropriate weight that correlates to the elbow in the loss graph and move that here:
 
@@ -234,5 +236,6 @@ deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 
 
