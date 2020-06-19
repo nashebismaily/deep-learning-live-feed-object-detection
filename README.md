@@ -39,6 +39,44 @@ Place yolov3.weights into this folder:
 deep-learning-live-feed-object-detection/model/config
 ```
 
+### Option 2: Train a custom Model
+
+1. Download a set of images for an object you want to classify.
+
+2. Use labelImg to annotate each image, ensure YOLO is set as the output type
+
+    ```
+    labelImg
+    ```
+
+    ![alt text](resources/icons/labelImg.png)
+
+3. Update the objects.names file to contain a list of objects that have been labeled
+
+    ```
+    deep-learning-live-feed-object-detection/model/config/objects.names 
+    ```
+
+4. Train the Model
+
+    ```
+    python3 deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
+    ```
+
+5. Once training is complete, observe the loss graph found here
+
+    ```
+    deep-learning-live-feed-object-detection/model/graphs
+    ```
+
+    ![alt text](resources/icons/darknetlossgraph.png)
+
+6. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
+
+    ```
+    deep-learning-live-feed-object-detection/model/config/yolov3.weights
+    ```
+    
 ### Detect objects in static images
 
 1. Add the path for the source and destination images into the config under the image section
@@ -99,53 +137,6 @@ device_id=0
 ```
 deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
 ```
-
-### Option 2: Train a custom Model
-
-1. Download a set of images for an object you want to classify.
-
-2. Use labelImg to annotate each image, ensure YOLO is set as the output type
-
-    ```
-    labelImg
-    ```
-
-    ![alt text](resources/icons/labelImg.png)
-
-3. Update the objects.names file to contain a list of objects that have been labeled
-
-    ```
-    deep-learning-live-feed-object-detection/model/config/objects.names 
-    ```
-
-4. Train the Model
-
-    ```
-    python3 deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
-    ```
-
-5. Once training is complete, observe the loss graph found here
-
-    ```
-    deep-learning-live-feed-object-detection/model/graphs
-    ```
-
-    ![alt text](resources/icons/darknetlossgraph.png)
-
-6. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
-
-    ```
-    deep-learning-live-feed-object-detection/model/config/yolov3.weights
-    ```
-
-### Run Image Detection
-
-
-### Run Video Detection
-
-
-### Run Live Camera Detection
-
 
 ### Results:
 
