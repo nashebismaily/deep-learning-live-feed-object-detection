@@ -26,7 +26,7 @@ or you can [train your own model](#option-2-train-a-custom-model)
 * matplotlib
 * labelimg
 * google_images_search
-
+* sips
 
 ### Clone Repository
 
@@ -68,7 +68,16 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-live-feed-object-detection/images/DownloadImages.py
     ```
 
-3. Use labelImg to annotate each image, ensure YOLO is set as the output type
+3. Pre-process images through resizing
+    ```
+    sips -Z 1024 *.jpg 
+
+    sips  : the command and -Z keeps the image's aspect ratio
+    1024  : the maximum width and height
+    *.jpg : converts every image ending in .jpg
+    ```
+
+4. Use labelImg to annotate each image, ensure YOLO is set as the output type
 
     ```
     labelImg
@@ -76,13 +85,13 @@ deep-learning-live-feed-object-detection/model/config
 
     ![alt text](resources/icons/labelImg.png)
 
-4. Update the objects.names file to contain a list of objects that have been labeled
+5. Update the objects.names file to contain a list of objects that have been labeled
 
     ```
     deep-learning-live-feed-object-detection/model/config/objects.names 
     ```
 
-5. Create a train.txt and test.txt file which contains abosolute path to images
+6. Create a train.txt and test.txt file which contains abosolute path to images
     ```
     deep-learning-live-feed-object-detection/model/config/test.txt
     deep-learning-live-feed-object-detection/model/config/train.txt
@@ -93,19 +102,19 @@ deep-learning-live-feed-object-detection/model/config
     ...
     ```
 
-6. Train the Model
+7. Train the Model
 
     ```
     deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
-7. Training output can be viewed here
+8. Training output can be viewed here
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-8. Once training is complete, observe the loss graph found here
+9. Once training is complete, observe the loss graph found here
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -113,7 +122,7 @@ deep-learning-live-feed-object-detection/model/config
 
     ![alt text](resources/icons/darknetlossgraph.png)
 
-9. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
+10. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
 
     ```
     deep-learning-live-feed-object-detection/model/config/yolov3.weights
