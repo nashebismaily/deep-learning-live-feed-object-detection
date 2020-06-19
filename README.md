@@ -122,7 +122,7 @@ deep-learning-liveconf-feed-object-detection/src/main/detection/DetectVideo.py
 1. Scan your cameras to detect available camera id's
 
 ```
-deep-learning-liveconf-feed-object-detection/src/main/detection/ScanCameras.py
+deep-learning-liveconf-feed-object-detection/src/main/utils/ScanCameras.py
 
 [0]
 ```
