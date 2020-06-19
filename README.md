@@ -74,7 +74,7 @@ deep-learning-live-feed-object-detection/model/config
     ```
 
 5. Create a train.txt and test.txt file which contains abosolute path to images
-    ````
+    ```
     deep-learning-live-feed-object-detection/model/config/test.txt
     deep-learning-live-feed-object-detection/model/config/train.txt
     
@@ -122,7 +122,6 @@ deep-learning-live-feed-object-detection/model/config
     ```
 
 2. Run the static image object detection
-
 
     ```
     deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
