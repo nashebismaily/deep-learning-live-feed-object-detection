@@ -13,17 +13,15 @@ or you can [train your own model](#option-2-train-a-custom-model)
 ### Prerequisites
 
 Python3
-cv2
+opencv-python
 matplotlib
 google_images_search
 
-```
-pip3 install cv2 
-pip3 matplotlib 
-pip3 google_images_search
-```
-
 ### Clone Repository
+
+This codebase was developed and tested in PyCharm.
+
+Donwload the PyCharm IDE and clone this repository.
 
 ```
 https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
@@ -33,12 +31,73 @@ https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
 
 Download the pre-trained model from here 
 
-[ML Model](https://srv-file6.gofile.io/download/Bfj367/yolov3.weights)
+[Pre-Trained ML Model](https://srv-file6.gofile.io/download/Bfj367/yolov3.weights)
 
 Place yolov3.weights into this folder:
 
 ```
 deep-learning-live-feed-object-detection/model/config
+```
+
+### Detect objects in static images
+
+1. Add the path for the source and destination images into the config under the image section
+
+```
+deep-learning-liveconf-feed-object-detection/ig/detection.cfg
+
+input_image=/root/photos/input_photo.jpg
+output_image=/root/photos/output_photo.jpg
+```
+
+2. Run the static image object detection
+
+
+```
+deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
+```
+
+### Detect objects in video
+
+1. Add the path for the source and destination videos into the config under the video section.
+   Note: The output video will be .avi format
+   
+```
+deep-learning-liveconf-feed-object-detection/ig/detection.cfg
+
+input_video=/root/videos/input_video.mov
+output_video=/root/videos/output_video.avi
+```
+
+2. Run the video object detection
+
+```
+deep-learning-liveconf-feed-object-detection/src/main/detection/DetectVideo.py
+```
+
+### Detect objects in camera
+
+
+1. Scan your cameras to detect available camera id's
+
+```
+deep-learning-liveconf-feed-object-detection/src/main/detection/ScanCameras.py
+
+[0]
+```
+
+2. Update detection.cfg with your selected device id
+
+```
+deep-learning-liveconf-feed-object-detection/ig/detection.cfg
+
+device_id=0
+```
+
+3. Run the live-stream  object detection
+
+```
+deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
 ```
 
 ### Option 2: Train a custom Model
