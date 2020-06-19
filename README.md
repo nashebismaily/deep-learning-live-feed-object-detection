@@ -5,7 +5,7 @@ This project uses a Convolutional Neural Network (CNN) to automatically detect a
 
 ## Getting Started
 
-These instructions will allwo you to run your own live-stream object detection.
+These instructions will allow you to run your own live-stream object detection.
 
 You can chose to [use the pre-trained model](#option-1-use-the-pre-trained-model)
 or you can [train your own model](#option-2-train-a-custom-model)
