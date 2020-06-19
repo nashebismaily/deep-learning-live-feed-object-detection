@@ -45,6 +45,16 @@ This codebase was developed and tested in PyCharm.
     https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
     ```
 
+### Download Base Weights Files
+
+[Base Weights File](https://srv-file14.gofile.io/download/KySboR/darknet53.conv.74)
+
+Place darknet53.conv.74 into this folder:
+
+```
+deep-learning-live-feed-object-detection/model/config
+```
+
 ### Option 1: Use the Pre-Trained Model
 
 Download my pre-trained model:
