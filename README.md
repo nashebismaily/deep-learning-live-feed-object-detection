@@ -12,10 +12,12 @@ or you can [train your own model](#option-2-train-a-custom-model)
 
 ### Prerequisites
 
-Python3
-opencv-python
-matplotlib
-google_images_search
+* python3
+* opencv-python
+* matplotlib
+* labelimg
+* google_images_search
+
 
 ### Clone Repository
 
@@ -149,8 +151,8 @@ TODO
 Each module has its own set of unit test that can be run.
 
 ```
-python3 TestDarkNet.py
-python3 TestCaptureStraem.py
+deep-learning-liveconf-feed-object-detection/test/main/detection/TestCaptureStream.py
+deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
 ```
 
 ## Built With
