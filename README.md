@@ -7,7 +7,7 @@ This project uses a Convolutional Neural Network (CNN) to automatically detect a
 
 These instructions will allow you to run your own live-stream object detection.
 
-You can chose to [use the pre-trained model](#option-1-use-the-pre-trained-model)
+You can chose to [use my pre-trained model](#option-1-use-the-pre-trained-model)
 or you can [train your own model](#option-2-train-a-custom-model)
 
 ### Prerequisites
@@ -29,7 +29,7 @@ Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/) and clon
 https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
 ```
 
-### Option 1: Use the Pre-Trained Model
+### Option 1: Use my Pre-Trained Model
 
 Download my pre-trained model:
 
