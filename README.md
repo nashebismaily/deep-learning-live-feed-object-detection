@@ -57,7 +57,7 @@ Place yolov3.weights into this folder:
 deep-learning-live-feed-object-detection/model/config
 ```
 
-### Option 2: Train a custom Model
+### Option 2: Train a Custom Model
 
 1. Add your google api keys and update your image search in google.cfg:
 
@@ -171,7 +171,7 @@ deep-learning-live-feed-object-detection/model/config
     ```
 
     
-### Detect objects in static images
+### Detect Objects in Static Images
 
 1. Add the path for the source and destination images into the config under the image section
 
@@ -188,7 +188,7 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
     ```
 
-### Detect objects in video
+### Detect Objects in Video
 
 1. Add the path for the source and destination videos into the config under the video section.
 
@@ -207,7 +207,7 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-liveconf-feed-object-detection/src/main/detection/DetectVideo.py
     ```
 
-### Detect objects in camera
+### Detect Objects in Camera
 
 
 1. Scan your cameras to detect available camera id's
@@ -232,7 +232,7 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
     ```
 
-## Running the tests
+## Running the Tests
 
 Each module has its own set of unit test that can be run.
 
