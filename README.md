@@ -102,19 +102,37 @@ deep-learning-live-feed-object-detection/model/config
     ...
     ```
 
-7. Train the Model
+7. Download and install darknet to help model training
+
+    ```
+    git clone https://github.com/pjreddie/darknet
+    cd darknet
+    make
+    ```
+
+8.  Configure darknet based directory
+
+    ```
+    deep-learning-live-feed-object-detection/config/darknet.cfg
+    
+    [darknet]
+    darknet_base_dir=/root/darknet
+    
+    ```
+
+9. Train the Model
 
     ```
     deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
-8. Training output can be viewed here
+10. Training output can be viewed here
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-9. Once training is complete, observe the loss graph found here
+11. Once training is complete, observe the loss graph found here
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -122,11 +140,12 @@ deep-learning-live-feed-object-detection/model/config
 
     ![alt text](resources/icons/darknetlossgraph.png)
 
-10. Select the appropriate weight that correlates to the elbow in the loss graph and move that here
+12. Select the appropriate weight that correlates to the elbow in the loss graph and move that here:
 
     ```
-    deep-learning-live-feed-object-detection/model/config/yolov3.weights
+    deep-learning-live-feed-object-detection/model/weights/yolov3.weights
     ```
+
     
 ### Detect objects in static images
 
