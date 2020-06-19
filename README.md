@@ -8,7 +8,10 @@ The CNN splits the input image into a grid of S×S cells. If the center of the g
 * Objectness score - indicates the probability that the cell contains an object. The objectness score is passed through a sigmoid function to be treated as a probability with a value range between 0 and 1. 
 * Class prediction - if the bounding box contains an object, the network predicts the probability of K number of classes. Where K is the total number of classes in your problem.
 
-The live stream object detection results in this:
+A graphical representation of the workflow follows:
+![alt text](resources/icons/yolovcnnarchitecture.png)
+
+The [live stream object detection](#detect-objects-in-camera) results in this:
 
 TODO
 
