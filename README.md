@@ -11,9 +11,10 @@ The CNN splits the input image into a grid of S×S cells. If the center of the g
 A graphical representation of the workflow follows:
 ![alt text](resources/icons/yolovcnnarchitecture.png)
 
-The [live stream object detection](#detect-objects-in-camera) results in this:
+The live stream object detection results in this:
 
-TODO
+!! TODO - Update to Final!!
+![alt text](resources/gifs/nasheb-car.gif)
 
 ## Getting Started
 
