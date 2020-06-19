@@ -76,7 +76,7 @@ deep-learning-live-feed-object-detection/model/config
 5. Train the Model
 
     ```
-    python3 deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
+    deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
 6. Training output can be viewed here
