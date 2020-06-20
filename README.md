@@ -84,7 +84,7 @@ deep-learning-live-feed-object-detection/model/weights
     deep-learning-live-feed-object-detection/images/DownloadImages.py
     ```
     
-    **Note:** If you don't have google api keys and want a quick workaround. Use this [Chrome Extension](https://chrome.google.com/webstore/detail/download-all-images/ifipmflagepipjokmbdecpmjbibjnakm?hl=en)
+    **Note:** If you don't have google api keys and want a quick workaround, use this [Chrome Extension](https://chrome.google.com/webstore/detail/download-all-images/ifipmflagepipjokmbdecpmjbibjnakm?hl=en)
 
 2. Pre-process images through resizing
     ```
