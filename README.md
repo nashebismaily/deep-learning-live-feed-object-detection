@@ -243,6 +243,25 @@ deep-learning-live-feed-object-detection/model/weights
     deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
     ```
 
+## Optional: Fine Tune Bounding Box
+
+The Bounding Box in each frame can be fine tuned by updating the following properties:
+
+```
+deep-learning-liveconf-feed-object-detection/config/boundingbox.cfg
+
+[blob]
+output_width:   spatial width for output image
+output_length:  spatial length for output image
+mean:	        scalar with mean values which are subtracted from channels. 
+                values are intended to be in (mean-R, mean-G, mean-B) order if image has BGR ordering and swapRB is true
+scalefactor:    multiplier for image values
+swapRB:	        flag which indicates that swap first and last channels in 3-channel image is necessary
+crop:	        flag which indicates whether image will be cropped after resize or not
+confidence:     requried confidence for succesfully detecting an image
+threshold:      threshold used in non maximum suppression
+```
+
 ## Running the Tests
 
 Each module has its own set of unit test that can be run.
@@ -251,10 +270,6 @@ Each module has its own set of unit test that can be run.
 deep-learning-liveconf-feed-object-detection/test/main/detection/TestCaptureStream.py
 deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
 ```
-
-## Optional: Fine Tune Bounding Box
-
-
 
 ## Built With
 
