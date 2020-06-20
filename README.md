@@ -69,7 +69,7 @@ deep-learning-live-feed-object-detection/model/config
 
 ### Option 2: Train a Custom Model
 
-1. Add your google api keys and update your image search in google.cfg:
+1. Add your google api keys, update your image search, and download images:
 
     ```
     [image_download]
@@ -77,15 +77,13 @@ deep-learning-live-feed-object-detection/model/config
     base_download_dir=/Downloads
     google_api_key=
     google_project_cx=
-    ```
-
-2. Download images
-
-    ```
+    
     deep-learning-live-feed-object-detection/images/DownloadImages.py
     ```
+    
+    Note: If you don't have google api keys and want a quick workaround. Use this [Chrome Extension](https://chrome.google.com/webstore/detail/download-all-images/ifipmflagepipjokmbdecpmjbibjnakm?hl=en)
 
-3. Pre-process images through resizing
+2. Pre-process images through resizing
     ```
     sips -Z 1024 *.jpg 
 
@@ -94,7 +92,7 @@ deep-learning-live-feed-object-detection/model/config
     *.jpg : converts every image ending in .jpg
     ```
 
-4. Use labelImg to annotate each image, ensure YOLO is set as the output type
+3. Use labelImg to annotate each image, ensure YOLO is set as the output type
 
     ```
     labelImg
@@ -102,13 +100,13 @@ deep-learning-live-feed-object-detection/model/config
 
     ![labelImg](resources/icons/labelImg.png)
 
-5. Update the objects.names file to contain a list of objects that have been labeled
+4. Update the objects.names file to contain a list of objects that have been labeled
 
     ```
     deep-learning-live-feed-object-detection/model/config/objects.names 
     ```
 
-6. Split the data into test and training sets. 
+5. Split the data into test and training sets. 
     
     * train.txt will contains absolute path to images for training
     * test.txt will contains absolute path to images for testing
@@ -124,7 +122,7 @@ deep-learning-live-feed-object-detection/model/config
     ...
     ```
 
-7. Download and install darknet to help model training
+6. Download and install darknet to help model training
 
     ```
     git clone https://github.com/pjreddie/darknet
@@ -132,7 +130,7 @@ deep-learning-live-feed-object-detection/model/config
     make
     ```
 
-8.  Configure darknet based directory
+7.  Configure darknet based directory
 
     ```
     deep-learning-live-feed-object-detection/config/darknet.cfg
@@ -141,7 +139,7 @@ deep-learning-live-feed-object-detection/model/config
     darknet_base_dir=/root/darknet
     
     ```
-9. Fine tune the model detection algorithm
+8. Fine tune the model detection algorithm
 
     ```
     deep-learning-live-feed-object-detection/model/config/yolov3.cfg
@@ -154,19 +152,19 @@ deep-learning-live-feed-object-detection/model/config
     Set 'steps' to 80% and 90% of max_batches.
     ```
 
-10. Train the Model
+9. Train the Model
 
     ```
     deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
     ```
     
-11. View the training output here:
+10. View the training output here:
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-12. Once training is complete, observe the loss graph found here:
+11. Once training is complete, observe the loss graph found here:
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -174,7 +172,7 @@ deep-learning-live-feed-object-detection/model/config
 
     ![darknetlossgraph](resources/icons/darknetlossgraph.png)
 
-13. Select the appropriate weight that correlates to the elbow in the loss graph and move that here:
+12. Select the appropriate weight that correlates to the elbow in the loss graph and move that here:
 
     ```
     deep-learning-live-feed-object-detection/model/weights/yolov3.weights
