@@ -55,7 +55,7 @@ This codebase was developed and tested in PyCharm.
 Place darknet53.conv.74 into this folder:
 
 ```
-deep-learning-live-feed-object-detection/model/config
+deep-learning-live-feed-object-detection/model/weights
 ```
 
 ### Option 1: Use the Pre-Trained Model
@@ -67,7 +67,7 @@ Download my pre-trained model:
 Place yolov3.weights into this folder:
 
 ```
-deep-learning-live-feed-object-detection/model/config
+deep-learning-live-feed-object-detection/model/weights
 ```
 
 ### Option 2: Train a Custom Model
@@ -251,6 +251,10 @@ Each module has its own set of unit test that can be run.
 deep-learning-liveconf-feed-object-detection/test/main/detection/TestCaptureStream.py
 deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
 ```
+
+## Optional: Fine Tune Bounding Box
+
+
 
 ## Built With
 
