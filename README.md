@@ -14,7 +14,7 @@ A graphical representation of the workflow follows:
 
 Notice that the prediction feature map has three boxes. The CNN has 9 anchors to allow for prediction at 3 different scales per cell. The detection layer makes detection at feature maps of three different sizes, having strides 32, 16, and 8 respectively. This results in the prediction of 3 bounding boxes for each cell. The bounding box responsible for detecting the dog will be the one whose anchor has the highest intersection over union with the ground truth box.
 
-The live stream object detection results in this:
+**Follow this guide and you will be able to create your own live stream object detection:**
 
 ![car](resources/gifs/nasheb-car-short.gif)
 
