@@ -89,7 +89,6 @@ class BoundingBox:
                     (centerX, centerY, box_width, box_height) = box.astype("int")
                     x = int(centerX - (box_width / 2))
                     y = int(centerY - (box_height / 2))
-
                     boxes.append([x, y, int(box_width), int(box_height)])
                     confidences.append(float(confidence))
                     class_identifiers.append(class_identifier)
