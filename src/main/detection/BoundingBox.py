@@ -53,7 +53,6 @@ class BoundingBox:
                                              self.project_dir + '/' + yolov_weights)
         self.layer_names = self.net.getLayerNames()
         self.layer_names = [self.layer_names[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
-
         self.colors = np.random.randint(0, 255, size=(len(self.labels), 3), dtype='uint8')
         try:
             self.mean = float(mean)
@@ -78,7 +77,6 @@ class BoundingBox:
         boxes = []
         confidences = []
         class_identifiers = []
-
         for output in output_layers:
             for detection in output:
                 scores = detection[5:]
@@ -92,7 +90,6 @@ class BoundingBox:
                     boxes.append([x, y, int(box_width), int(box_height)])
                     confidences.append(float(confidence))
                     class_identifiers.append(class_identifier)
-
         return boxes, confidences, class_identifiers
 
     # suppress weak and overlapping boxes
@@ -109,5 +106,4 @@ class BoundingBox:
                 cv.rectangle(frame, (x, y), (x + w, y + h), color, 2)
                 text = "{}: {:4f}".format(self.labels[class_identifiers[i]], confidences[i])
                 cv.putText(frame, text, (x, y - 5), cv.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
-
         return frame
