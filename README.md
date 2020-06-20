@@ -44,6 +44,9 @@ This codebase was developed and tested in PyCharm.
     ```
     https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
     ```
+3. Configure your project interpreter as follows:
+
+    ![interpreter](resources/icons/interpreter.png)
 
 ### Download Base Weights Files
 
