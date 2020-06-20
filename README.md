@@ -249,9 +249,9 @@ deep-learning-live-feed-object-detection/model/weights
     deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
     ```
 
-### Optional: Fine Tune Bounding Box
+### Optional: Fine Tune the Bounding Box Blob
 
-The Bounding Box in each frame can be fine tuned by updating the following properties:
+Fine tune the 4-dimensional blob from the input frame:
 
 ```
 deep-learning-liveconf-feed-object-detection/config/boundingbox.cfg
