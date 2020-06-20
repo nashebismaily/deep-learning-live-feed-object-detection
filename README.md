@@ -81,7 +81,7 @@ deep-learning-live-feed-object-detection/model/config
     deep-learning-live-feed-object-detection/images/DownloadImages.py
     ```
     
-    Note: If you don't have google api keys and want a quick workaround. Use this [Chrome Extension](https://chrome.google.com/webstore/detail/download-all-images/ifipmflagepipjokmbdecpmjbibjnakm?hl=en)
+    **Note:** If you don't have google api keys and want a quick workaround. Use this [Chrome Extension](https://chrome.google.com/webstore/detail/download-all-images/ifipmflagepipjokmbdecpmjbibjnakm?hl=en)
 
 2. Pre-process images through resizing
     ```
@@ -200,7 +200,7 @@ deep-learning-live-feed-object-detection/model/config
 
 1. Add the path for the source and destination videos into the config under the video section.
 
-   Note: The output video needs to be in .avi format
+   **Note:** The output video needs to be in .avi format
    
     ```
     deep-learning-liveconf-feed-object-detection/config/detection.cfg
