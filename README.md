@@ -254,7 +254,7 @@ deep-learning-liveconf-feed-object-detection/config/boundingbox.cfg
 output_width:   spatial width for output image
 output_length:  spatial length for output image
 mean:	        scalar with mean values which are subtracted from channels. 
-                values are intended to be in (mean-R, mean-G, mean-B) order if image has BGR ordering and swapRB is true
+                values are (mean-R, mean-G, mean-B) order if image has BGR ordering and swapRB is true
 scalefactor:    multiplier for image values
 swapRB:	        flag which indicates that swap first and last channels in 3-channel image is necessary
 crop:	        flag which indicates whether image will be cropped after resize or not
