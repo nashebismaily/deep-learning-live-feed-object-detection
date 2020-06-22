@@ -61,8 +61,7 @@ def main():
         # Get and draw bounding boxes
         blob = bounding_box.get_blob(frame)
         output_layers = bounding_box.get_output_layers(blob)
-        boxes, confidences, class_identifiers = bounding_box.get_bounding_boxes(output_layers, input_height,
-                                                                                input_width)
+        boxes, confidences, class_identifiers = bounding_box.get_bounding_boxes(output_layers, input_height, input_width)
         suppression = bounding_box.suppress_weak_overlapping_boxes(boxes, confidences)
         frame_with_boxes = bounding_box.draw_boxes_labels(frame, boxes, confidences, class_identifiers, suppression)
         end_time = time.time()
