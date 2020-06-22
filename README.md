@@ -266,15 +266,14 @@ deep-learning-live-feed-object-detection/model/weights
 ### Detect Objects in Video
 
 1. Add the path for the source and destination videos into the config under the video section.
-
-   **Note:** The output video needs to be in .avi format
-   
+  
     ```
     deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
     input_video=/root/videos/input_video.mov
     output_video=/root/videos/output_video.avi
     ```
+    **Note:** The output video needs to be in .avi format. The input video can be any format.
 
 2. Run the video object detection
 
@@ -284,7 +283,6 @@ deep-learning-live-feed-object-detection/model/weights
     ```
 
 ### Detect Objects in Camera
-
 
 1. Scan your cameras to detect available camera id's
 
