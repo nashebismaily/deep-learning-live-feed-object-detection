@@ -245,7 +245,7 @@ deep-learning-live-feed-object-detection/model/weights
     ```
 
     
-### Detect Objects in Static Images
+### Detect Objects in Images
 
 1. Add the path for the source and destination images into the config under the image section
 
