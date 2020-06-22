@@ -256,7 +256,7 @@ deep-learning-live-feed-object-detection/model/weights
     deep-learning-live-feed-object-detection/detection/detect_camera.py
     ```
 
-### Optional: Fine Tune the Bounding Box Blob
+### OPTIONAL: Fine Tune the Bounding Box Blob
 
 Fine tune the 4-dimensional blob from the input frame:
 
