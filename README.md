@@ -8,7 +8,6 @@ This project uses a Convolutional Neural Network (CNN) to automatically detect a
 * Objectness score - the probability that the cell contains an object. The objectness score is passed through a sigmoid function to be treated as a probability with a value range between 0 and 1. 
 * Class prediction - if the bounding box contains an object, the network predicts the probability of K number of classes. Where K is the total number of classes in your problem.
 
-
 **Follow [this guide](#getting-started) and you will be able to create your own live stream object detection:**
 
 ![car](resources/gifs/nasheb-car-short.gif)
@@ -29,20 +28,30 @@ or you can [train your own model](#option-2-train-a-custom-model)
 * opencv-python
 * matplotlib
 * labelimg
+* imutils
 * google_images_search
 * sips
 
 ### Clone Repository
 
-This codebase was developed and tested in PyCharm.
+This codebase has been tested on RHEL7 and MacOS-PyCharm
 
-1. Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/)
-
-2. Clone this repository into the PyCharm IDE.
+1. Clone this repository
     ```
     https://github.com/nashebismaily/deep-learning-live-feed-object-detection.git
     ```
-3. Configure your project interpreter as follows:
+2. Install packages
+    ```
+    pip3 install opencv-python
+    pip3 install matplotlib
+    pip3 install labelimg
+    pip3 install imutils
+    pip3 install google_images_search
+    pip3 install sips
+    ```
+3. OPTIONAL: Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/)
+
+4. OPTIONAL: Configure your project interpreter as follows:
 
     ![interpreter](resources/icons/interpreter.png)
 
@@ -104,7 +113,7 @@ deep-learning-live-feed-object-detection/model/weights
 4. Update the objects.names file to contain a list of objects that have been labeled
 
     ```
-    deep-learning-live-feed-object-detection/model/config/objects.names 
+    deep-learning-live-feed-object-detection/model/yolov/objects.names 
     ```
 
 5. Split the data into test and training sets. 
@@ -140,7 +149,7 @@ deep-learning-live-feed-object-detection/model/weights
 7.  Configure darknet based directory
 
     ```
-    deep-learning-live-feed-object-detection/config/darknet.cfg
+    deep-learning-live-feed-object-detection/config/model.cfg
     
     [darknet]
     darknet_base_dir=/root/darknet
@@ -149,7 +158,7 @@ deep-learning-live-feed-object-detection/model/weights
 8. Fine tune the model detection algorithm
 
     ```
-    deep-learning-live-feed-object-detection/model/config/yolov3.cfg
+    deep-learning-live-feed-object-detection/model/yolov/yolov3.cfg
     
     Set 'batch' to 16
     Set 'subdivisions' to 4
@@ -162,7 +171,7 @@ deep-learning-live-feed-object-detection/model/weights
 9. Train the Model
 
     ```
-    deep-learning-live-feed-object-detection/src/main/model/TrainModel.py
+    deep-learning-live-feed-object-detection/model/train_model.py
     ```
     
 10. View the training output here:
@@ -191,7 +200,7 @@ deep-learning-live-feed-object-detection/model/weights
 1. Add the path for the source and destination images into the config under the image section
 
     ```
-    deep-learning-liveconf-feed-object-detection/config/detection.cfg
+    deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
 
     input_image=/root/photos/input_photo.jpg
     output_image=/root/photos/output_photo.jpg
@@ -200,7 +209,7 @@ deep-learning-live-feed-object-detection/model/weights
 2. Run the static image object detection
 
     ```
-    deep-learning-liveconf-feed-object-detection/src/main/detection/DetectImage.py
+    deep-learning-liveconf-feed-object-detection/detection/detect_image.py
     ```
 
 ### Detect Objects in Video
@@ -210,7 +219,7 @@ deep-learning-live-feed-object-detection/model/weights
    **Note:** The output video needs to be in .avi format
    
     ```
-    deep-learning-liveconf-feed-object-detection/config/detection.cfg
+    deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
 
     input_video=/root/videos/input_video.mov
     output_video=/root/videos/output_video.avi
@@ -219,7 +228,7 @@ deep-learning-live-feed-object-detection/model/weights
 2. Run the video object detection
 
     ```
-    deep-learning-liveconf-feed-object-detection/src/main/detection/DetectVideo.py
+    deep-learning-liveconf-feed-object-detection/detection/detect_video.py
     ```
 
 ### Detect Objects in Camera
@@ -228,7 +237,7 @@ deep-learning-live-feed-object-detection/model/weights
 1. Scan your cameras to detect available camera id's
 
     ```
-    deep-learning-liveconf-feed-object-detection/src/main/utils/ScanCameras.py
+    deep-learning-liveconf-feed-object-detection/detection/utils/scan_cameras.py
 
     [0]
     ```
@@ -236,7 +245,7 @@ deep-learning-live-feed-object-detection/model/weights
 2. Update detection.cfg with your selected device id
 
     ```
-    deep-learning-liveconf-feed-object-detection/config/detection.cfg
+    deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
 
     device_id=0
     ```
@@ -244,7 +253,7 @@ deep-learning-live-feed-object-detection/model/weights
 3. Run the live-stream  object detection
 
     ```
-    deep-learning-liveconf-feed-object-detection/src/main/detection/DetectCamera.py
+    deep-learning-liveconf-feed-object-detection/detection/detect_camera.py
     ```
 
 ### Optional: Fine Tune the Bounding Box Blob
@@ -252,13 +261,11 @@ deep-learning-live-feed-object-detection/model/weights
 Fine tune the 4-dimensional blob from the input frame:
 
 ```
-deep-learning-liveconf-feed-object-detection/config/boundingbox.cfg
+deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
 
 [blob]
 output_width:   spatial width for output image
 output_length:  spatial length for output image
-mean:	        scalar with mean values which are subtracted from channels. 
-                values are (mean-R, mean-G, mean-B) order if image has BGR ordering and swapRB is true
 scalefactor:    multiplier for image values
 swapRB:	        flag which indicates that swap first and last channels in 3-channel image is necessary
 crop:	        flag which indicates whether image will be cropped after resize or not
@@ -266,13 +273,28 @@ confidence:     requried confidence for succesfully detecting an image
 threshold:      threshold used in non maximum suppression
 ```
 
-### Running the Tests
+### Optional: Fine Tune Video Capture
 
-Each module has its own set of unit test that can be run.
+Fine tune the frame capture rate:
 
 ```
-deep-learning-liveconf-feed-object-detection/test/main/detection/TestCaptureStream.py
-deep-learning-liveconf-feed-object-detection/test/main/detection/TestDarkNet.py
+deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+
+[video]
+frames_per_second:  fps for output video
+color:              color (True) or bw (False)
+```
+
+### Optional: Fine Tune Camera Capture
+
+Fine tune the camera's frame output:
+
+```
+deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+
+[camera]
+frame_wait_ms:          amount of time to dispaly each processed frame
+frame_pause_interval:   frame interval for bounding box reuse
 ```
 
 ## Built With
