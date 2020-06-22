@@ -49,9 +49,9 @@ This codebase has been tested on RHEL7 and MacOS-PyCharm
     pip3 install google_images_search
     pip3 install sips
     ```
-3. OPTIONAL: Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/)
+3. **OPTIONAL**: Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/)
 
-4. OPTIONAL: Configure your project interpreter as follows:
+4. **OPTIONAL**: Configure your project interpreter as follows:
 
     ![interpreter](resources/icons/interpreter.png)
 
@@ -65,7 +65,7 @@ Place darknet53.conv.74 into this folder:
 deep-learning-live-feed-object-detection/model/weights
 ```
 
-### Option 1: Use the Pre-Trained Model
+### OPTION 1: Use the Pre-Trained Model
 
 Download my pre-trained model:
 
@@ -77,7 +77,7 @@ Place yolov3.weights into this folder:
 deep-learning-live-feed-object-detection/model/weights
 ```
 
-### Option 2: Train a Custom Model
+### OPTION 2: Train a Custom Model
 
 1. Add your google api keys, update your image search, and download images:
 
