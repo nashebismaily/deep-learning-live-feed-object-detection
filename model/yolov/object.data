@@ -1,0 +1,5 @@
+classes=25
+train=yolov/train.txt
+valid=yolov/test.txt
+names=yolov/objects.names
+backup=weights/
