@@ -30,7 +30,6 @@ or you can [train your own model](#option-2-train-a-custom-model)
 * labelimg
 * imutils
 * google_images_search
-* sips
 
 ### Clone Repository
 
@@ -44,11 +43,13 @@ This codebase has been tested on RHEL7 and MacOS-PyCharm
     ```
     pip3 install opencv-python
     pip3 install matplotlib
-    pip3 install labelimg
     pip3 install imutils
     pip3 install google_images_search
-    pip3 install sips
+    
+    yum install labelimg
     ```
+    **Note**: Ue brew instead of yum on MacOSx
+    
 3. **OPTIONAL**: Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/)
 
 4. **OPTIONAL**: Configure your project interpreter as follows:
@@ -82,6 +83,8 @@ deep-learning-live-feed-object-detection/model/weights
 1. Add your google api keys, update your image search, and download images:
 
     ```
+    deep-learning-live-feed-object-detection/images/config/images.cfg
+    
     [image_download]
     search_string=car,truck,buss,motercycle,bicycle,dog,cat,fire hydrant,stop sign
     base_download_dir=/Downloads
@@ -91,26 +94,27 @@ deep-learning-live-feed-object-detection/model/weights
     deep-learning-live-feed-object-detection/images/DownloadImages.py
     ```
     
-    **Note:** If you don't have google api keys and want a quick workaround, use this [Chrome Extension](https://chrome.google.com/webstore/detail/download-all-images/ifipmflagepipjokmbdecpmjbibjnakm?hl=en)
+    **Note:** If you don't have google api keys and want a quick workaround to download images in bulk, use this [Chrome Extension](https://chrome.google.com/webstore/detail/download-all-images/ifipmflagepipjokmbdecpmjbibjnakm?hl=en)
 
-2. Pre-process images through resizing
-    ```
-    sips -Z 1024 *.jpg 
+2. Use labelImg to annotate each image
 
-    sips  : the command and -Z keeps the image's aspect ratio
-    1024  : the maximum width and height
-    *.jpg : converts every image ending in .jpg
-    ```
-
-3. Use labelImg to annotate each image, ensure YOLO is set as the output type
-
+    * Select input directory (open dir) which contains the downloaded images
+    * Select output directory (save dir) to be the same as the input directory
+    * Ensure YOLO is set as the output type (Instead of the default: <Pascal/VOC>)
+    * Draw and label a bounding box for EACH object that appears in the photo
+    * Save the photo when you are done and proceed to the next one.
     ```
     labelImg
     ```
 
-    ![labelImg](resources/icons/labelImg.png)
+    ![labelImg](resources/icons/labelImg_example.png)
+    
+    **Note:** This will result in a .txt file for each photo which contains:
+    ```
+    <object-class> <x> <y> <width> <height>
+    ```   
 
-4. Update the objects.names file to contain a list of objects that have been labeled
+3. Update the objects.names file to contain a list of objects that have been labeled, one label per line
 
     ```
     deep-learning-live-feed-object-detection/model/yolov/objects.names 
@@ -118,8 +122,8 @@ deep-learning-live-feed-object-detection/model/weights
 
 5. Split the data into test and training sets. 
     
-    * train.txt will contains absolute path to images for training
-    * test.txt will contains absolute path to images for testing
+    * train.txt will contains absolute path to images for training (75% images)
+    * test.txt will contains absolute path to images for testing (25% images)
     * label files need to be in the same directory as images
      
     ```
@@ -141,15 +145,22 @@ deep-learning-live-feed-object-detection/model/weights
 6. Download and install darknet to help model training
 
     ```
+    cd /root #Or any other directory
     git clone https://github.com/pjreddie/darknet
     cd darknet
-    make
+    make 
     ```
-
-7.  Configure darknet based directory
+    **Note:** You will need to install your OS development tools for the 'make' command to work. 
+    
+     ```
+     For RHEL:   yum groupinstall 'Development Tools'
+     For MacOSx: Install command Line Tools for Xcode
+     ``` 
+    
+7.  Configure darknet based directory to the install location of darknet
 
     ```
-    deep-learning-live-feed-object-detection/detection/config/detection.cfg
+    deep-learning-live-feed-object-detection/model/config/model.cfg
     
     [darknet]
     darknet_base_dir=/root/darknet
@@ -158,7 +169,7 @@ deep-learning-live-feed-object-detection/model/weights
 8. Fine tune the model detection algorithm
 
     ```
-    deep-learning-live-feed-object-detection/detection/detect_image.py
+    deep-learning-live-feed-object-detection/model/yolov/yolov3.cfg 
     
     Set 'batch' to 16
     Set 'subdivisions' to 4
@@ -167,11 +178,32 @@ deep-learning-live-feed-object-detection/model/weights
     Set 'max_batches' to the number of classes * 2000 
     Set 'steps' to 80% and 90% of max_batches.
     ```
+    
+    **Note:** Use yolov3-tiny.cfg instead of yolov3 if your running on a laptop or a compute constrained device.
+              In this case, update model.cfg:
+              
+    ```
+    deep-learning-live-feed-object-detection/model/config/model.cfg
+    
+    [yolov3]
+    yolov3_config_file=yolov3-tiny.cfg
+    ```
+     
+9.  Update your run mode:   
+
+    ```
+    deep-learning-live-feed-object-detection/model/config/model.cfg
+    
+    [run_mode]
+    shell=True  #For command line use
+    shell=False #For PyCharm IDE use
+    ```
 
 9. Train the Model
 
     ```
-    deep-learning-live-feed-object-detection/model/train_model.py
+    cd deep-learning-live-feed-object-detection/model
+    python3 train_model.py
     ```
     
 10. View the training output here:
@@ -188,7 +220,7 @@ deep-learning-live-feed-object-detection/model/weights
 
     ![darknetlossgraph](resources/icons/darknetlossgraph.png)
 
-12. Select the appropriate weight that correlates to the elbow in the loss graph and move that here:
+12. Select the appropriate weight that correlates to the elbow in the loss graph (or choose the final weight) and move/rename that to:
 
     ```
     deep-learning-live-feed-object-detection/model/weights/yolov3.weights
@@ -199,7 +231,7 @@ deep-learning-live-feed-object-detection/model/weights
 
 1. Add the path for the source and destination images into the config under the image section
 
-    ```
+    ``` 
     deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
     input_image=/root/photos/input_photo.jpg
@@ -209,7 +241,8 @@ deep-learning-live-feed-object-detection/model/weights
 2. Run the static image object detection
 
     ```
-    deep-learning-live-feed-object-detection/detection/detect_image.py
+    cd deep-learning-live-feed-object-detection/detection
+    python3 detect_image.py
     ```
 
 ### Detect Objects in Video
@@ -228,7 +261,8 @@ deep-learning-live-feed-object-detection/model/weights
 2. Run the video object detection
 
     ```
-    deep-learning-live-feed-object-detection/detection/detect_video.py
+    cd deep-learning-live-feed-object-detection/detection
+    python3 detect_video.py
     ```
 
 ### Detect Objects in Camera
@@ -237,7 +271,8 @@ deep-learning-live-feed-object-detection/model/weights
 1. Scan your cameras to detect available camera id's
 
     ```
-    deep-learning-live-feed-object-detection/detection/utils/scan_cameras.py
+    cd deep-learning-live-feed-object-detection/detection/utils
+    python3 scan_cameras.py
 
     [0]
     ```
@@ -253,7 +288,8 @@ deep-learning-live-feed-object-detection/model/weights
 3. Run the live-stream  object detection
 
     ```
-    deep-learning-live-feed-object-detection/detection/detect_camera.py
+    cd deep-learning-live-feed-object-detection/detection
+    python3 detect_camera.py
     ```
 
 ### OPTIONAL: Fine Tune the Bounding Box Blob
