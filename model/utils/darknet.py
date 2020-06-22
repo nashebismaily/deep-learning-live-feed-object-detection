@@ -67,7 +67,7 @@ class DarkNet:
                         + self.project_dir + '/model/yolov/' + str(self.darknet_object_data) + " " \
                         + self.project_dir + '/model/yolov/' + str(self.yolov3_config_file) + " " \
                         + self.project_dir + '/model/weights/' + str(self.yolov3_train_weights_file) + " " \
-                        + " > " + self.project_dir + '/' + self.log_file
+                        + " > " + self.project_dir + '/model/logs/' + self.log_file
 
         print("Running Shell Command: {}".format(linux_cmd))
         process = subprocess.Popen(linux_cmd , shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
@@ -88,7 +88,7 @@ class DarkNet:
             log_file = 'logs/' + self.log_file
         # IDE mode
         else:
-            log_file = self.project_dir + '/' + self.log_file
+            log_file = self.project_dir + '/model/logs/' + self.log_file
 
         for line in open(log_file):
             print(line)
