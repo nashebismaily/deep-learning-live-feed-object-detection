@@ -273,7 +273,7 @@ confidence:     requried confidence for succesfully detecting an image
 threshold:      threshold used in non maximum suppression
 ```
 
-### Optional: Fine Tune Video Capture
+### OPTIONAL: Fine Tune Video Capture
 
 Fine tune the frame capture rate:
 
@@ -285,7 +285,7 @@ frames_per_second:  fps for output video
 color:              color (True) or bw (False)
 ```
 
-### Optional: Fine Tune Camera Capture
+### OPTIONAL: Fine Tune Camera Capture
 
 Fine tune the camera's frame output:
 
