@@ -123,14 +123,14 @@ deep-learning-live-feed-object-detection/model/weights
     * label files need to be in the same directory as images
      
     ```
-    deep-learning-live-feed-object-detection/model/config/train.txt
+    deep-learning-live-feed-object-detection/model/weights/train.txt
     
     /root/photos/image1.jpg
     /root/photos/image2.jpg
     /root/photos/image3.jpg
     ...
     
-    deep-learning-live-feed-object-detection/model/config/test.txt
+    deep-learning-live-feed-object-detection/model/weights/test.txt
 
     /root/photos/image4.jpg
     /root/photos/image5.jpg
@@ -149,7 +149,7 @@ deep-learning-live-feed-object-detection/model/weights
 7.  Configure darknet based directory
 
     ```
-    deep-learning-live-feed-object-detection/config/model.cfg
+    deep-learning-live-feed-object-detection/detection/config/detection.cfg
     
     [darknet]
     darknet_base_dir=/root/darknet
@@ -158,7 +158,7 @@ deep-learning-live-feed-object-detection/model/weights
 8. Fine tune the model detection algorithm
 
     ```
-    deep-learning-live-feed-object-detection/model/yolov/yolov3.cfg
+    deep-learning-live-feed-object-detection/detection/detect_image.py
     
     Set 'batch' to 16
     Set 'subdivisions' to 4
@@ -200,7 +200,7 @@ deep-learning-live-feed-object-detection/model/weights
 1. Add the path for the source and destination images into the config under the image section
 
     ```
-    deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+    deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
     input_image=/root/photos/input_photo.jpg
     output_image=/root/photos/output_photo.jpg
@@ -209,7 +209,7 @@ deep-learning-live-feed-object-detection/model/weights
 2. Run the static image object detection
 
     ```
-    deep-learning-liveconf-feed-object-detection/detection/detect_image.py
+    deep-learning-live-feed-object-detection/detection/detect_image.py
     ```
 
 ### Detect Objects in Video
@@ -219,7 +219,7 @@ deep-learning-live-feed-object-detection/model/weights
    **Note:** The output video needs to be in .avi format
    
     ```
-    deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+    deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
     input_video=/root/videos/input_video.mov
     output_video=/root/videos/output_video.avi
@@ -228,7 +228,7 @@ deep-learning-live-feed-object-detection/model/weights
 2. Run the video object detection
 
     ```
-    deep-learning-liveconf-feed-object-detection/detection/detect_video.py
+    deep-learning-live-feed-object-detection/detection/detect_video.py
     ```
 
 ### Detect Objects in Camera
@@ -237,7 +237,7 @@ deep-learning-live-feed-object-detection/model/weights
 1. Scan your cameras to detect available camera id's
 
     ```
-    deep-learning-liveconf-feed-object-detection/detection/utils/scan_cameras.py
+    deep-learning-live-feed-object-detection/detection/utils/scan_cameras.py
 
     [0]
     ```
@@ -245,7 +245,7 @@ deep-learning-live-feed-object-detection/model/weights
 2. Update detection.cfg with your selected device id
 
     ```
-    deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+    deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
     device_id=0
     ```
@@ -253,7 +253,7 @@ deep-learning-live-feed-object-detection/model/weights
 3. Run the live-stream  object detection
 
     ```
-    deep-learning-liveconf-feed-object-detection/detection/detect_camera.py
+    deep-learning-live-feed-object-detection/detection/detect_camera.py
     ```
 
 ### Optional: Fine Tune the Bounding Box Blob
@@ -261,7 +261,7 @@ deep-learning-live-feed-object-detection/model/weights
 Fine tune the 4-dimensional blob from the input frame:
 
 ```
-deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
 [blob]
 output_width:   spatial width for output image
@@ -278,7 +278,7 @@ threshold:      threshold used in non maximum suppression
 Fine tune the frame capture rate:
 
 ```
-deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
 [video]
 frames_per_second:  fps for output video
@@ -290,7 +290,7 @@ color:              color (True) or bw (False)
 Fine tune the camera's frame output:
 
 ```
-deep-learning-liveconf-feed-object-detection/detection/config/detection.cfg
+deep-learning-live-feed-object-detection/detection/config/detection.cfg
 
 [camera]
 frame_wait_ms:          amount of time to dispaly each processed frame
