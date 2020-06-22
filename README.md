@@ -123,14 +123,14 @@ deep-learning-live-feed-object-detection/model/weights
     * label files need to be in the same directory as images
      
     ```
-    deep-learning-live-feed-object-detection/model/weights/train.txt
+    deep-learning-live-feed-object-detection/model/yolov/train.txt
     
     /root/photos/image1.jpg
     /root/photos/image2.jpg
     /root/photos/image3.jpg
     ...
     
-    deep-learning-live-feed-object-detection/model/weights/test.txt
+    deep-learning-live-feed-object-detection/model/yolov/test.txt
 
     /root/photos/image4.jpg
     /root/photos/image5.jpg
