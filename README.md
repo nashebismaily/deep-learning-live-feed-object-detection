@@ -120,7 +120,7 @@ deep-learning-live-feed-object-detection/model/weights
     deep-learning-live-feed-object-detection/model/yolov/objects.names 
     ```
 
-5. Split the data into test and training sets. 
+4. Split the data into test and training sets. 
     
     * train.txt will contains absolute path to images for training (75% images)
     * test.txt will contains absolute path to images for testing (25% images)
@@ -141,7 +141,7 @@ deep-learning-live-feed-object-detection/model/weights
     /root/photos/image6.jpg  
     ...
     ```
-6. Update the object definition files:
+5. Update the object definition files:
        
     * If you plan on running this on the command line
 
@@ -163,10 +163,10 @@ deep-learning-live-feed-object-detection/model/weights
     backup:     full/absolute path to weights directory
     ```
     
-7. Download and install darknet to help model training
+6. Download and install darknet to help model training
 
     ```
-    cd /root #Or any other directory
+    cd /root # Or any other directory
     git clone https://github.com/pjreddie/darknet
     cd darknet
     make 
@@ -178,7 +178,7 @@ deep-learning-live-feed-object-detection/model/weights
      For MacOSx: Install command Line Tools for Xcode
      ``` 
     
-8.  Configure darknet based directory to the install location of darknet
+7.  Configure darknet based directory to the install location of darknet
 
     ```
     deep-learning-live-feed-object-detection/model/config/model.cfg
@@ -187,8 +187,7 @@ deep-learning-live-feed-object-detection/model/weights
     darknet_base_dir=/root/darknet
     
     ```
-9. Fine tune the model detection algorithm
-
+8. Fine tune the model detection algorithm
     ```
     deep-learning-live-feed-object-detection/model/yolov/yolov3.cfg 
     
@@ -200,17 +199,15 @@ deep-learning-live-feed-object-detection/model/weights
     Set 'steps' to 80% and 90% of max_batches.
     ```
     
-    **Note:** Use yolov3-tiny.cfg instead of yolov3 if your running on a laptop or a compute constrained device.
-              In this case, update model.cfg:
+    **Note:** Use yolov3-tiny.cfg instead of yolov3.cfg if your running on a laptop or a compute constrained device. In this case, update the model configuration:
                             
     ```
     deep-learning-live-feed-object-detection/model/config/model.cfg
     
     [yolov3]
     yolov3_config_file=yolov3-tiny.cfg
-    ```
-     
-10.  Update your run mode:   
+    ```     
+9.  Update your run mode:   
 
     ```
     deep-learning-live-feed-object-detection/model/config/model.cfg
@@ -220,20 +217,20 @@ deep-learning-live-feed-object-detection/model/weights
     shell=False #For PyCharm IDE use
     ```
 
-11. Train the Model
+10. Train the Model
 
     ```
     cd deep-learning-live-feed-object-detection/model
     python3 train_model.py
     ```
     
-12. View the training output here:
+11. View the training output here:
 
     ```
     deep-learning-live-feed-object-detection/model/logs
     ```
 
-13. Once training is complete, observe the loss graph found here:
+12. Once training is complete, observe the loss graph found here:
 
     ```
     deep-learning-live-feed-object-detection/model/graphs
@@ -241,7 +238,7 @@ deep-learning-live-feed-object-detection/model/weights
 
     ![darknetlossgraph](resources/icons/darknetlossgraph.png)
 
-14. Select the appropriate weight that correlates to the elbow in the loss graph (or choose the final weight) and move/rename that to:
+13. Select the appropriate weight that correlates to the elbow in the loss graph (or choose the final weight) and move/rename that to:
 
     ```
     deep-learning-live-feed-object-detection/model/weights/yolov3.weights
