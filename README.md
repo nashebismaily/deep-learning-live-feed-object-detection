@@ -8,11 +8,6 @@ This project uses a Convolutional Neural Network (CNN) to automatically detect a
 * Objectness score - the probability that the cell contains an object. The objectness score is passed through a sigmoid function to be treated as a probability with a value range between 0 and 1. 
 * Class prediction - if the bounding box contains an object, the network predicts the probability of K number of classes. Where K is the total number of classes in your problem.
 
-A graphical representation of the workflow follows:
-
-![yolovcnnarchitecture](resources/icons/yolovcnnarchitecture.png)
-
-Notice that the prediction feature map has three boxes. The CNN has 9 anchors to allow for prediction at 3 different scales per cell. The detection layer makes detection at feature maps of three different sizes, having strides 32, 16, and 8 respectively. This results in the prediction of 3 bounding boxes for each cell. The bounding box responsible for detecting the dog will be the one whose anchor has the highest intersection over union with the ground truth box.
 
 **Follow [this guide](#getting-started) and you will be able to create your own live stream object detection:**
 
