@@ -48,7 +48,7 @@ This codebase has been tested on RHEL7 and MacOS-PyCharm
     
     yum install labelimg
     ```
-    **Note**: Ue brew instead of yum on MacOSx
+    **Note**: Use brew instead of yum on MacOSx
     
 3. **OPTIONAL**: Donwload the [PyCharm IDE](https://www.jetbrains.com/pycharm/download/)
 
