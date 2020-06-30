@@ -3,11 +3,11 @@ This directory requires:
 1. darknet53.conv.74
 2. yolov3.weights
 
-Pre-trained weights can be downloaded from:
+My Pre-trained weights can be downloaded from:
 
-1. https://srv-file14.gofile.io/download/KySboR/darknet53.conv.74
-2. https://srv-file6.gofile.io/download/Bfj367/yolov3.weights
+1. https://srv-file22.gofile.io/download/OmhUTs/darknet53.conv.74
+2. https://srv-file14.gofile.io/download/ifLfzS/yolov3.weights
 
 Optional:
 
-Add your own yolov3.weights
+Train your own model using OPTION 2 in the README
