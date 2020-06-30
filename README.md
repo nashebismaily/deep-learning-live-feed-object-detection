@@ -55,6 +55,8 @@ This codebase has been tested on RHEL7 and MacOS-PyCharm
 4. **OPTIONAL**: Configure your project interpreter as follows:
 
     ![interpreter](resources/icons/interpreter.png)
+    
+    **Note**: PyCharm may show import errors on classes in this project, ignore them and continue
 
 ### Download Base Weights Files
 
