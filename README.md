@@ -68,15 +68,20 @@ deep-learning-live-feed-object-detection/model/weights
 
 ### OPTION 1: Use the Pre-Trained Model
 
-Download my pre-trained model:
+1. Download my pre-trained model:
 
-[Pre-Trained ML Model](https://srv-file6.gofile.io/download/Bfj367/yolov3.weights)
+    [Pre-Trained ML Model](https://srv-file6.gofile.io/download/Bfj367/yolov3.weights)
 
-Place yolov3.weights into this folder:
+    Place yolov3.weights into this folder:
 
-```
-deep-learning-live-feed-object-detection/model/weights
-```
+    ```
+    deep-learning-live-feed-object-detection/model/weights
+    ```
+
+2. Continue to one of the folllowing:
+    * [Detect Objects In Images](#detect-objects-in-images)
+    * [Detect Objects In Video](#detect-objects-in-video)
+    * [Detect Objects In Camera](#detect-objects-in-camera)
 
 ### OPTION 2: Train a Custom Model
 
