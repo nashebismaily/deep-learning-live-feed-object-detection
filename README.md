@@ -58,7 +58,7 @@ This codebase has been tested on RHEL7 and MacOS-PyCharm
 
 ### Download Base Weights Files
 
-[Base Weights File](https://srv-file14.gofile.io/download/KySboR/darknet53.conv.74)
+[Base Weights File](https://srv-file22.gofile.io/download/OmhUTs/darknet53.conv.74)
 
 Place darknet53.conv.74 into this folder:
 
@@ -70,7 +70,7 @@ deep-learning-live-feed-object-detection/model/weights
 
 1. Download my pre-trained model:
 
-    [Pre-Trained ML Model](https://srv-file6.gofile.io/download/Bfj367/yolov3.weights)
+    [Pre-Trained ML Model](https://srv-file14.gofile.io/download/ifLfzS/yolov3.weights)
 
     Place yolov3.weights into this folder:
 
