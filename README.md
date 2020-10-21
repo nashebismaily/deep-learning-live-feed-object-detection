@@ -12,9 +12,6 @@ This project uses a Convolutional Neural Network (CNN) to automatically detect a
 
 ![car](resources/gifs/nasheb-car-short.gif)
 
-
-**DEVELOPMENT IN PROGRESS**
-
 ## Getting Started
 
 These instructions will allow you to run your own live-stream object detection.
